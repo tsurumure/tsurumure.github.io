@@ -1127,8 +1127,9 @@ pre .javascript .function {
   display: block;
   height: auto;
   margin: 0 auto;
-  max-width: 120px;
+  max-width: 90px;
   padding: 2px;
+  border-radius: 50%;
 }
 .site-author-name {
   color: #222;
@@ -1156,7 +1157,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #4bff87;
+  background: #26ffc1;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1508,11 +1509,6 @@ pre .javascript .function {
   overflow-wrap: break-word;
   word-wrap: break-word;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
-}
-@media (min-width: 1200px) {
-  .post-body {
-    font-size: 1.125em;
-  }
 }
 .post-body span.exturl .fa {
   font-size: 0.875em;
