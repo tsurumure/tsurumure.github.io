@@ -1157,7 +1157,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #6eecff;
+  background: #87fb57;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1476,38 +1476,27 @@ pre .javascript .function {
   }
 }
 .back-to-top {
-  background: #222;
-  bottom: -100px;
-  box-sizing: border-box;
-  color: #fff;
+  background: #f5f7f9;
   cursor: pointer;
   font-size: 12px;
-  left: 30px;
-  opacity: 0.6;
-  padding: 0 6px;
-  position: fixed;
+  margin: 8px -10px -20px;
+  opacity: 0.8;
   text-align: center;
-  transition-property: bottom;
-  z-index: 300;
-  transition-delay: 0s;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in-out;
-  width: 24px;
-}
-.back-to-top span {
-  display: none;
+  visibility: hidden;
 }
 .back-to-top:hover {
-  color: #fc6423;
-}
-.back-to-top.back-to-top-on {
-  bottom: 30px;
+  opacity: 0.8;
 }
 @media (max-width: 991px) {
   .back-to-top {
-    left: 20px;
-    opacity: 0.8;
+    display: none;
   }
+}
+.back-to-top.back-to-top-on {
+  visibility: visible;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
 }
 .post-body {
   overflow-wrap: break-word;
@@ -1666,7 +1655,7 @@ pre .javascript .function {
 .post-eof {
   background: #ccc;
   height: 1px;
-  margin: 80px auto 60px;
+  margin: 60px auto 40px;
   text-align: center;
   width: 8%;
 }
@@ -1788,7 +1777,7 @@ pre .javascript .function {
   word-wrap: break-word;
   font-weight: 400;
   margin: initial;
-  text-align: center;
+  text-align: left;
 }
 .posts-expand .post-title-link {
   border-bottom: none;
@@ -1823,8 +1812,8 @@ pre .javascript .function {
   color: #999;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 0.75em;
-  margin: 3px 0 60px 0;
-  text-align: center;
+  margin: 3px 0 30px 0;
+  text-align: left;
 }
 .posts-expand .post-meta .post-description {
   font-size: 0.875em;
@@ -2246,6 +2235,7 @@ ul.breadcrumb li + li:last-child {
 .back-to-top {
   left: auto;
   right: 30px;
+  background: #eee;
 }
 @media (max-width: 991px) {
   .back-to-top {
