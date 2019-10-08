@@ -54,18 +54,17 @@
   };
 </script>
 
-  <meta name="description" content="Javascript 属性对象的 hasOwnProperty 方法参考链接判断自身属性是否存在123456789101112var o = new Object();o.prop = &amp;apos;exists&amp;apos;;console.log(o.hasOwnProperty(&amp;apos;prop&amp;apos;));  // truefunction changeO() &amp;#123;  o.ne">
-<meta name="keywords" content="转载">
+  <meta name="description" content="参考链接Javascript 属性对象的 hasOwnProperty 方法 判断自身属性是否存在123456789101112var o = new Object();o.prop = &apos;exists&apos;;console.log(o.hasOwnProperty(&apos;prop&apos;));  // truefunction changeO() &amp;#123;  o.newprop = o.prop;  de">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Object.prototype.hasOwnProperty() 方法">
 <meta property="og:url" content="http://imure.cn/2019/10/08/Object-prototype-hasOwnProperty/index.html">
 <meta property="og:site_name" content="Mure">
-<meta property="og:description" content="Javascript 属性对象的 hasOwnProperty 方法参考链接判断自身属性是否存在123456789101112var o = new Object();o.prop = &amp;apos;exists&amp;apos;;console.log(o.hasOwnProperty(&amp;apos;prop&amp;apos;));  // truefunction changeO() &amp;#123;  o.ne">
+<meta property="og:description" content="参考链接Javascript 属性对象的 hasOwnProperty 方法 判断自身属性是否存在123456789101112var o = new Object();o.prop = &apos;exists&apos;;console.log(o.hasOwnProperty(&apos;prop&apos;));  // truefunction changeO() &amp;#123;  o.newprop = o.prop;  de">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-08T07:50:17.844Z">
+<meta property="og:updated_time" content="2019-10-08T07:57:54.523Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Object.prototype.hasOwnProperty() 方法">
-<meta name="twitter:description" content="Javascript 属性对象的 hasOwnProperty 方法参考链接判断自身属性是否存在123456789101112var o = new Object();o.prop = &amp;apos;exists&amp;apos;;console.log(o.hasOwnProperty(&amp;apos;prop&amp;apos;));  // truefunction changeO() &amp;#123;  o.ne">
+<meta name="twitter:description" content="参考链接Javascript 属性对象的 hasOwnProperty 方法 判断自身属性是否存在123456789101112var o = new Object();o.prop = &apos;exists&apos;;console.log(o.hasOwnProperty(&apos;prop&apos;));  // truefunction changeO() &amp;#123;  o.newprop = o.prop;  de">
   <link rel="canonical" href="http://imure.cn/2019/10/08/Object-prototype-hasOwnProperty/">
 
 
@@ -247,7 +246,7 @@
                 
               
 
-              <time title="创建时间：2019-10-08 14:42:13 / 修改时间：15:50:17" itemprop="dateCreated datePublished" datetime="2019-10-08T14:42:13+08:00">2019-10-08</time>
+              <time title="创建时间：2019-10-08 14:42:13 / 修改时间：15:57:54" itemprop="dateCreated datePublished" datetime="2019-10-08T14:42:13+08:00">2019-10-08</time>
             </span>
           
             
@@ -279,22 +278,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Javascript 属性对象的 hasOwnProperty 方法</p><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty" target="_blank" rel="noopener">参考链接</a></p><p><strong>判断自身属性是否存在</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var o = new Object();</span><br><span class="line">o.prop = &apos;exists&apos;;</span><br><span class="line">console.log(o.hasOwnProperty(&apos;prop&apos;));  // true</span><br><span class="line"></span><br><span class="line">function changeO() &#123;</span><br><span class="line">  o.newprop = o.prop;</span><br><span class="line">  delete o.prop;</span><br><span class="line">&#125;</span><br><span class="line">changeO();</span><br><span class="line"></span><br><span class="line">o.hasOwnProperty(&apos;prop&apos;);       // false</span><br><span class="line">o.hasOwnProperty(&apos;newprop&apos;);    // true</span><br></pre></td></tr></table></figure><a id="more"></a>
-
+        <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty" target="_blank" rel="noopener">参考链接</a><br>Javascript 属性对象的 hasOwnProperty 方法 </p><p><strong>判断自身属性是否存在</strong></p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">o.prop = <span class="string">'exists'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(o.hasOwnProperty(<span class="string">'prop'</span>));  <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeO</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  o.newprop = o.prop;</span><br><span class="line">  <span class="keyword">delete</span> o.prop;</span><br><span class="line">&#125;</span><br><span class="line">changeO();</span><br><span class="line"></span><br><span class="line">o.hasOwnProperty(<span class="string">'prop'</span>);       <span class="comment">// false</span></span><br><span class="line">o.hasOwnProperty(<span class="string">'newprop'</span>);    <span class="comment">// true</span></span><br></pre></td></tr></table></figure><a id="more"></a>
 
 
 
 <p><strong>判断自身属性与继承属性</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">function humam () &#123;</span><br><span class="line">    this.name = &apos;Jack&apos;</span><br><span class="line">    this.sayhello = function () &#123;</span><br><span class="line">        console.log(&apos;hello!&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var boy = new human()</span><br><span class="line">console.log(boy.hasOwnProperty(&apos;name&apos;))         // true</span><br><span class="line"></span><br><span class="line">boy.sayhello()      // hello!</span><br><span class="line">console.log(boy.hasOwnProperty(&apos;sayhello&apos;))     // true</span><br><span class="line"></span><br><span class="line">// 继承</span><br><span class="line">human.prototype.saygoodbye = function () &#123;</span><br><span class="line">  console.log(&apos;goodbye!&apos;)</span><br><span class="line">&#125;</span><br><span class="line">boy.saygoodbye()    // goodbye!</span><br><span class="line">console.log(boy.hasOwnProperty(&apos;saygoodbye&apos;))   // false</span><br><span class="line">console.log(&apos;saygoodbye&apos; in boy)                // true</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">humam</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'Jack'</span></span><br><span class="line">    <span class="keyword">this</span>.sayhello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'hello!'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> boy = <span class="keyword">new</span> human()</span><br><span class="line"><span class="built_in">console</span>.log(boy.hasOwnProperty(<span class="string">'name'</span>))         <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">boy.sayhello()      <span class="comment">// hello!</span></span><br><span class="line"><span class="built_in">console</span>.log(boy.hasOwnProperty(<span class="string">'sayhello'</span>))     <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 继承</span></span><br><span class="line">human.prototype.saygoodbye = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'goodbye!'</span>)</span><br><span class="line">&#125;</span><br><span class="line">boy.saygoodbye()    <span class="comment">// goodbye!</span></span><br><span class="line"><span class="built_in">console</span>.log(boy.hasOwnProperty(<span class="string">'saygoodbye'</span>))   <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'saygoodbye'</span> <span class="keyword">in</span> boy)                <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>使用遍历来忽略继承属性</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var orign = function () &#123; this.x = 1 &#125;</span><br><span class="line">orign.prototype.y = 2</span><br><span class="line"></span><br><span class="line">var o = new orign()</span><br><span class="line">for (var name in o) &#123;</span><br><span class="line">    console.log(name, o.hasOwnProperty(name))</span><br><span class="line">    // x true</span><br><span class="line">    // y false</span><br><span class="line">    // if (o.hasOwnProperty(name))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> orign = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">this</span>.x = <span class="number">1</span> &#125;</span><br><span class="line">orign.prototype.y = <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> orign()</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> name <span class="keyword">in</span> o) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(name, o.hasOwnProperty(name))</span><br><span class="line">    <span class="comment">// x true</span></span><br><span class="line">    <span class="comment">// y false</span></span><br><span class="line">    <span class="comment">// if (o.hasOwnProperty(name))</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>注意 hasOwnProperty 作为属性名</strong><br>假如使用了 <code>hasOwnProperty</code> 作为属性名，则会获取不到真实结果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var o = &#123;</span><br><span class="line">    hasOwnProperty: function() &#123;</span><br><span class="line">        return false</span><br><span class="line">    &#125;,</span><br><span class="line">    foo: &apos;Hello, foo&apos;</span><br><span class="line">&#125;</span><br><span class="line">o.hasOwnProperty(&apos;foo&apos;) // 始终返回 false</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    hasOwnProperty: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;,</span><br><span class="line">    foo: <span class="string">'Hello, foo'</span></span><br><span class="line">&#125;</span><br><span class="line">o.hasOwnProperty(<span class="string">'foo'</span>) <span class="comment">// 始终返回 false</span></span><br></pre></td></tr></table></figure>
 
 <p>只有使用 <code>另一个对象</code> 或者 <code>Object原型链</code> 上的 <code>hasOwnProperty</code> 属性，<br>可以避免上面的情况</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 匿名对象</span><br><span class="line">(&#123;&#125;).hasOwnProperty.call(o, &apos;foo&apos;)</span><br><span class="line">// Object Prototype</span><br><span class="line">Object.prototype.hasOwnProperty.call(o, &apos;foo&apos;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 匿名对象</span></span><br><span class="line">(&#123;&#125;).hasOwnProperty.call(o, <span class="string">'foo'</span>)</span><br><span class="line"><span class="comment">// Object Prototype</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.hasOwnProperty.call(o, <span class="string">'foo'</span>)</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -306,34 +304,9 @@
       
 
       <footer class="post-footer">
-          
-            
-          
-          <div class="post-tags">
-            
-              <a href="/tags/转载/" rel="tag"># 转载</a>
-            
-          </div>
-        
 
         
 
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-              
-                <a href="/2019/10/07/test3/" rel="next" title="test3">
-                  <i class="fa fa-chevron-left"></i> test3
-                </a>
-              
-            </div>
-
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-              
-            </div>
-          </div>
-        
       </footer>
     
   </article>
@@ -392,7 +365,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">1</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -438,7 +411,7 @@
     </div>
 
     <div class="sidebar-list-categories">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/">Javascript</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/">Javascript</a><span class="category-list-count">1</span></li></ul>
     </div>
 
   </aside>
