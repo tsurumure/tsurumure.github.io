@@ -1207,7 +1207,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #a3e7ff;
+  background: #c2ff11;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2306,6 +2306,19 @@ ul.breadcrumb li + li:last-child {
     padding-right: 0;
     width: auto;
   }
+}
+.comments > .vwrap .markdown,
+.comments > .info {
+  display: none;
+}
+.comments.v .vlist .vcard .vhead .vnick {
+  color: #6f78ed;
+}
+.comments.v .vlist .vcard .vh .vmeta .vat {
+  color: #aaa;
+}
+.comments.v .vlist .vcard .vh .vmeta .vat:hover {
+  color: #444;
 }
 .site-brand-container {
   position: relative;
