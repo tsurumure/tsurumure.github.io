@@ -1207,7 +1207,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #2abe9f;
+  background: #ffffa1;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1859,9 +1859,8 @@ pre .javascript .function {
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
 }
-.posts-expand .post-title-link:hover::before {
-  transform: scaleX(1);
-  visibility: visible;
+.posts-expand .post-title-link:hover {
+  color: #6f78ed;
 }
 .posts-expand .post-title-link .fa {
   font-size: 0.875em;
