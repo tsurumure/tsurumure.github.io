@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://imure.cn/2019/10/08/Object-prototype-hasOwnProperty/</loc>
+    <lastmod>2019-10-08</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://imure.cn/2019/10/07/hello-world/</loc>
+    <lastmod>2019-10-08</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://imure.cn/about/index.html</loc>
+    <lastmod>2019-10-07</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://imure.cn/2019/10/07/test3/</loc>
+    <lastmod>2019-10-07</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://imure.cn/categories/index.html</loc>
+    <lastmod>2019-10-07</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://imure.cn/tags/index.html</loc>
+    <lastmod>2019-10-07</lastmod>
+  </url>
+  
+</urlset>
