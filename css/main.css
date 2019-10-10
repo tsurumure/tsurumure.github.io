@@ -1207,7 +1207,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #c2ff11;
+  background: #da090b;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2192,7 +2192,7 @@ ul.breadcrumb li + li:last-child {
   font-weight: bold;
 }
 .tag-cloud {
-  text-align: center;
+  text-align: left;
 }
 .tag-cloud a {
   display: inline-block;
