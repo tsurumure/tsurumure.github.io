@@ -2,8 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://imure.cn/2019/10/08/Object-prototype-hasOwnProperty/</loc>
-    <lastmod>2019-10-10</lastmod>
+    <loc>http://imure.cn/2019/10/11/Javascript-The-extends-way/</loc>
+    <lastmod>2019-10-11</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://imure.cn/2019/10/08/Javascript-Object-prototype-hasOwnProperty/</loc>
+    <lastmod>2019-10-11</lastmod>
   </url>
   
   <url>
