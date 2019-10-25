@@ -2,13 +2,53 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://imure.cn/2019/10/11/Javascript-The-extends-way/</loc>
-    <lastmod>2019-10-11</lastmod>
+    <loc>http://imure.cn/2019/10/25/Typescript-Methods/</loc>
+    <lastmod>2019-10-25</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://imure.cn/2019/10/25/Typescript-Decorator/</loc>
+    <lastmod>2019-10-25</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://imure.cn/2019/10/25/Typescript-Export-and-import/</loc>
+    <lastmod>2019-10-25</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://imure.cn/2019/10/25/Typescript-Class/</loc>
+    <lastmod>2019-10-25</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://imure.cn/2019/10/25/Typescript-Interface/</loc>
+    <lastmod>2019-10-25</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://imure.cn/2019/10/25/Typescript-Genericity/</loc>
+    <lastmod>2019-10-25</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://imure.cn/2019/10/25/Typescript-Function-params/</loc>
+    <lastmod>2019-10-25</lastmod>
   </url>
   
   <url>
     <loc>http://imure.cn/2019/10/08/Javascript-Object-prototype-hasOwnProperty/</loc>
-    <lastmod>2019-10-11</lastmod>
+    <lastmod>2019-10-25</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://imure.cn/2019/10/11/Javascript-The-extends-way/</loc>
+    <lastmod>2019-10-25</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://imure.cn/2019/10/25/Typescript-Variable/</loc>
+    <lastmod>2019-10-25</lastmod>
   </url>
   
   <url>

@@ -54,19 +54,19 @@
   };
 </script>
 
-  <meta name="description" content="1.原型链继承123456function Father (name) &amp;#123; this.name = name &amp;#125;function Boy () &amp;#123; this.name = &quot;Tom&quot; &amp;#125;// 让 新实例的原型 = 父例Boy.prototype = new Father() // 重点var tom = new Boy()console.log(tom.na">
+  <meta name="description" content="ES5:12345678function Person(name)&amp;#123;    this.name=name;    this.run = function () &amp;#123;        alert(this.name + &apos; es5!&apos;)    &amp;#125;&amp;#125;var p=new Person(&apos;张三&apos;);p.run()">
 <meta name="keywords" content="学习笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Javascript 继承的几种方式">
-<meta property="og:url" content="http://imure.cn/2019/10/11/Javascript-The-extends-way/index.html">
+<meta property="og:title" content="Typescript 类 (传参、继承super、多态)">
+<meta property="og:url" content="http://imure.cn/2019/10/25/Typescript-Class/index.html">
 <meta property="og:site_name" content="Mure">
-<meta property="og:description" content="1.原型链继承123456function Father (name) &amp;#123; this.name = name &amp;#125;function Boy () &amp;#123; this.name = &quot;Tom&quot; &amp;#125;// 让 新实例的原型 = 父例Boy.prototype = new Father() // 重点var tom = new Boy()console.log(tom.na">
+<meta property="og:description" content="ES5:12345678function Person(name)&amp;#123;    this.name=name;    this.run = function () &amp;#123;        alert(this.name + &apos; es5!&apos;)    &amp;#125;&amp;#125;var p=new Person(&apos;张三&apos;);p.run()">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-25T08:18:56.130Z">
+<meta property="og:updated_time" content="2019-10-25T08:35:45.565Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Javascript 继承的几种方式">
-<meta name="twitter:description" content="1.原型链继承123456function Father (name) &amp;#123; this.name = name &amp;#125;function Boy () &amp;#123; this.name = &quot;Tom&quot; &amp;#125;// 让 新实例的原型 = 父例Boy.prototype = new Father() // 重点var tom = new Boy()console.log(tom.na">
-  <link rel="canonical" href="http://imure.cn/2019/10/11/Javascript-The-extends-way/">
+<meta name="twitter:title" content="Typescript 类 (传参、继承super、多态)">
+<meta name="twitter:description" content="ES5:12345678function Person(name)&amp;#123;    this.name=name;    this.run = function () &amp;#123;        alert(this.name + &apos; es5!&apos;)    &amp;#125;&amp;#125;var p=new Person(&apos;张三&apos;);p.run()">
+  <link rel="canonical" href="http://imure.cn/2019/10/25/Typescript-Class/">
 
 
 <script id="page-configurations">
@@ -80,7 +80,7 @@
   };
 </script>
 
-  <title>Javascript 继承的几种方式 | Mure</title>
+  <title>Typescript 类 (传参、继承super、多态) | Mure</title>
   
 
 
@@ -219,7 +219,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://imure.cn/2019/10/11/Javascript-The-extends-way/">
+    <link itemprop="mainEntityOfPage" href="http://imure.cn/2019/10/25/Typescript-Class/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mure">
@@ -231,7 +231,7 @@
       <meta itemprop="name" content="Mure">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Javascript 继承的几种方式
+        <h1 class="post-title" itemprop="name headline">Typescript 类 (传参、继承super、多态)
 
           
         </h1>
@@ -247,7 +247,7 @@
                 
               
 
-              <time title="创建时间：2019-10-11 16:50:43" itemprop="dateCreated datePublished" datetime="2019-10-11T16:50:43+08:00">2019-10-11</time>
+              <time title="创建时间：2019-10-25 16:22:49" itemprop="dateCreated datePublished" datetime="2019-10-25T16:22:49+08:00">2019-10-25</time>
             </span>
           
             <span class="post-meta-item">
@@ -256,7 +256,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Javascript/" itemprop="url" rel="index"><span itemprop="name">Javascript</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Typescript/" itemprop="url" rel="index"><span itemprop="name">Typescript</span></a></span>
 
                 
                 
@@ -265,7 +265,7 @@
           
 
           
-            <span id="/2019/10/11/Javascript-The-extends-way/" class="post-meta-item leancloud_visitors" data-flag-title="Javascript 继承的几种方式" title="阅读次数">
+            <span id="/2019/10/25/Typescript-Class/" class="post-meta-item leancloud_visitors" data-flag-title="Typescript 类 (传参、继承super、多态)" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -283,7 +283,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/10/11/Javascript-The-extends-way/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/10/11/Javascript-The-extends-way/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/10/25/Typescript-Class/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/10/25/Typescript-Class/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -297,17 +297,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="1-原型链继承"><a href="#1-原型链继承" class="headerlink" title="1.原型链继承"></a>1.原型链继承</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Father</span> (<span class="params">name</span>) </span>&#123; <span class="keyword">this</span>.name = name &#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Boy</span> (<span class="params"></span>) </span>&#123; <span class="keyword">this</span>.name = <span class="string">"Tom"</span> &#125;</span><br><span class="line"><span class="comment">// 让 新实例的原型 = 父例</span></span><br><span class="line">Boy.prototype = <span class="keyword">new</span> Father() <span class="comment">// 重点</span></span><br><span class="line"><span class="keyword">var</span> tom = <span class="keyword">new</span> Boy()</span><br><span class="line"><span class="built_in">console</span>.log(tom.name)</span><br></pre></td></tr></table></figure><a id="more"></a>
+        <p>ES5:</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name=name;</span><br><span class="line">    <span class="keyword">this</span>.run = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(<span class="keyword">this</span>.name + <span class="string">' es5!'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> p=<span class="keyword">new</span> Person(<span class="string">'张三'</span>);</span><br><span class="line">p.run()</span><br></pre></td></tr></table></figure><a id="more"></a>
 
-<p>缺点：父类属性一变子类也跟着变</p>
-<h3 id="2-借用构造函数继承"><a href="#2-借用构造函数继承" class="headerlink" title="2.借用构造函数继承"></a>2.借用构造函数继承</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Father</span> (<span class="params">name</span>) </span>&#123; <span class="keyword">this</span>.name = name &#125;</span><br><span class="line">Father.prototype.age = <span class="number">50</span> <span class="comment">// 没有被继承</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">girl</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    Father.call(<span class="keyword">this</span>, <span class="string">'Marry'</span>) <span class="comment">// 重点</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// girl.prototype = new Father() // 组合继承</span></span><br><span class="line"><span class="keyword">var</span> marry = <span class="keyword">new</span> girl()</span><br><span class="line"><span class="built_in">console</span>.log(marry.name)</span><br><span class="line"><span class="built_in">console</span>.log(marry.age) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
 
-<p>特点：<br>1、只继承了父类构造函数的属性，没有继承父类原型的属性<br>2、可以继承多个构造函数属性（call多个）<br>3、在子实例中可向父实例传参</p>
-<p>缺点：<br>1、只能继承父类构造函数的属性。<br>2、无法实现构造函数的复用。（每次用每次都要重新调用）<br>3、每个新实例都有父类构造函数的副本，臃肿</p>
-<h3 id="3-组合继承"><a href="#3-组合继承" class="headerlink" title="3.组合继承"></a>3.组合继承</h3><p>同时使用上面两种继承<br>缺点：调用了两次父类构造函数（耗内存），子类的构造函数会代替原型上的那个父类构造函数</p>
-<h3 id="4-寄生组合继承"><a href="#4-寄生组合继承" class="headerlink" title="4.寄生组合继承"></a>4.寄生组合继承</h3><p>与组合相似</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Father</span> (<span class="params">name</span>) </span>&#123; <span class="keyword">this</span>.name = name &#125;</span><br><span class="line">Father.prototype.getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="keyword">this</span>.name &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Man</span> (<span class="params">age</span>) </span>&#123;</span><br><span class="line">    Father.call(<span class="keyword">this</span>, <span class="string">'Jack'</span>)</span><br><span class="line">    <span class="keyword">this</span>.age = age</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> Super = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">    Super.prototype = Father.prototype;</span><br><span class="line">    Man.prototype = <span class="keyword">new</span> Super()</span><br><span class="line">&#125;)()</span><br><span class="line"><span class="comment">// 相当于 Man.prototype = new Father()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> man = <span class="keyword">new</span> Man(<span class="number">18</span>)</span><br><span class="line"><span class="built_in">console</span>.log(man.getName())</span><br></pre></td></tr></table></figure>
+<p>Typescript:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    name:string; <span class="comment">// 属性  前面省略了public关键词</span></span><br><span class="line">    <span class="comment">// 构造方法</span></span><br><span class="line">    <span class="keyword">constructor</span> (n:string) &#123; <span class="comment">// 构造函数   实例化类的时候触发的方法</span></span><br><span class="line">        <span class="keyword">this</span>.name = n</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 实例方法</span></span><br><span class="line">    run():<span class="keyword">void</span> &#123;</span><br><span class="line">        alert(<span class="keyword">this</span>.name + <span class="string">' typescript!'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> p=<span class="keyword">new</span> Person(<span class="string">'张三'</span>);</span><br><span class="line">p.run()</span><br></pre></td></tr></table></figure>
 
+<h3 id="参数传递-赋值"><a href="#参数传递-赋值" class="headerlink" title="参数传递/赋值:"></a>参数传递/赋值:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    name:string;</span><br><span class="line">    getName():string &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">    &#125;</span><br><span class="line">    setName(name:string):<span class="keyword">void</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="继承-super"><a href="#继承-super" class="headerlink" title="继承 (super):"></a>继承 (super):</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    name:string; age:number;</span><br><span class="line">    contructor (name:string, <span class="attr">age</span>:number) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name; <span class="keyword">this</span>.age = age</span><br><span class="line">    &#125;</span><br><span class="line">    run():string &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span> is <span class="subst">$&#123;<span class="keyword">this</span>.age&#125;</span>`</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Boy</span> <span class="keyword">extends</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    contructor (name:string, <span class="attr">age</span>:number) &#123;</span><br><span class="line">        <span class="keyword">super</span>(name, age)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> Boy(<span class="string">'Tom'</span>, <span class="number">20</span>)</span><br><span class="line">b.run()</span><br></pre></td></tr></table></figure>
+
+<p>参数 修饰符 (public、protected、private)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public <span class="comment">// 公有          在当前类里面、 子类  、类外面都可以访问</span></span><br><span class="line">protected <span class="comment">// 保护类型    在当前类里面、子类里面可以访问 ，在类外部没法访问</span></span><br><span class="line">private <span class="comment">// 私有         在当前类里面可以访问，子类、类外部都没法访问</span></span><br><span class="line"><span class="comment">// 属性如果不加修饰符 默认就是 公有 （public）</span></span><br><span class="line"><span class="keyword">static</span> <span class="comment">// 静态方法/属性</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>父类定义一个方法不去实现，让继承它的子类去实现<br>每一个子类有不同的表现<br>多态属于继承</p>
 
     </div>
 
@@ -333,8 +336,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/10/08/Javascript-Object-prototype-hasOwnProperty/" rel="next" title="Object.prototype.hasOwnProperty() 方法">
-                  <i class="fa fa-chevron-left"></i> Object.prototype.hasOwnProperty() 方法
+                <a href="/2019/10/25/Typescript-Methods/" rel="next" title="Typescript 方法 (静态Static、抽象Abstract)">
+                  <i class="fa fa-chevron-left"></i> Typescript 方法 (静态Static、抽象Abstract)
                 </a>
               
             </div>
@@ -343,8 +346,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/10/25/Typescript-Variable/" rel="prev" title="Typescript 数据类型">
-                  Typescript 数据类型 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/10/25/Typescript-Interface/" rel="prev" title="Typescript 接口Interface">
+                  Typescript 接口Interface <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -394,7 +397,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-原型链继承"><span class="nav-text">1.原型链继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-借用构造函数继承"><span class="nav-text">2.借用构造函数继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-组合继承"><span class="nav-text">3.组合继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-寄生组合继承"><span class="nav-text">4.寄生组合继承</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#参数传递-赋值"><span class="nav-text">参数传递/赋值:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承-super"><span class="nav-text">继承 (super):</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多态"><span class="nav-text">多态</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->

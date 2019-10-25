@@ -54,19 +54,19 @@
   };
 </script>
 
-  <meta name="description" content="1.原型链继承123456function Father (name) &amp;#123; this.name = name &amp;#125;function Boy () &amp;#123; this.name = &quot;Tom&quot; &amp;#125;// 让 新实例的原型 = 父例Boy.prototype = new Father() // 重点var tom = new Boy()console.log(tom.na">
+  <meta name="description" content="接口起到一种限制和规范的作用接口定义了某一批类所需要遵守的规范一个接口可以对多个方法进行约束接口可以继承类(类型)接口 (implements)和抽像类有点类似12345678910111213141516interface Animal &amp;#123;    name:string;    eat(str:string):void;&amp;#125;class Dog implements Animal">
 <meta name="keywords" content="学习笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Javascript 继承的几种方式">
-<meta property="og:url" content="http://imure.cn/2019/10/11/Javascript-The-extends-way/index.html">
+<meta property="og:title" content="Typescript 接口Interface">
+<meta property="og:url" content="http://imure.cn/2019/10/25/Typescript-Interface/index.html">
 <meta property="og:site_name" content="Mure">
-<meta property="og:description" content="1.原型链继承123456function Father (name) &amp;#123; this.name = name &amp;#125;function Boy () &amp;#123; this.name = &quot;Tom&quot; &amp;#125;// 让 新实例的原型 = 父例Boy.prototype = new Father() // 重点var tom = new Boy()console.log(tom.na">
+<meta property="og:description" content="接口起到一种限制和规范的作用接口定义了某一批类所需要遵守的规范一个接口可以对多个方法进行约束接口可以继承类(类型)接口 (implements)和抽像类有点类似12345678910111213141516interface Animal &amp;#123;    name:string;    eat(str:string):void;&amp;#125;class Dog implements Animal">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-25T08:18:56.130Z">
+<meta property="og:updated_time" content="2019-10-25T08:35:41.223Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Javascript 继承的几种方式">
-<meta name="twitter:description" content="1.原型链继承123456function Father (name) &amp;#123; this.name = name &amp;#125;function Boy () &amp;#123; this.name = &quot;Tom&quot; &amp;#125;// 让 新实例的原型 = 父例Boy.prototype = new Father() // 重点var tom = new Boy()console.log(tom.na">
-  <link rel="canonical" href="http://imure.cn/2019/10/11/Javascript-The-extends-way/">
+<meta name="twitter:title" content="Typescript 接口Interface">
+<meta name="twitter:description" content="接口起到一种限制和规范的作用接口定义了某一批类所需要遵守的规范一个接口可以对多个方法进行约束接口可以继承类(类型)接口 (implements)和抽像类有点类似12345678910111213141516interface Animal &amp;#123;    name:string;    eat(str:string):void;&amp;#125;class Dog implements Animal">
+  <link rel="canonical" href="http://imure.cn/2019/10/25/Typescript-Interface/">
 
 
 <script id="page-configurations">
@@ -80,7 +80,7 @@
   };
 </script>
 
-  <title>Javascript 继承的几种方式 | Mure</title>
+  <title>Typescript 接口Interface | Mure</title>
   
 
 
@@ -219,7 +219,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://imure.cn/2019/10/11/Javascript-The-extends-way/">
+    <link itemprop="mainEntityOfPage" href="http://imure.cn/2019/10/25/Typescript-Interface/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mure">
@@ -231,7 +231,7 @@
       <meta itemprop="name" content="Mure">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Javascript 继承的几种方式
+        <h1 class="post-title" itemprop="name headline">Typescript 接口Interface
 
           
         </h1>
@@ -247,7 +247,7 @@
                 
               
 
-              <time title="创建时间：2019-10-11 16:50:43" itemprop="dateCreated datePublished" datetime="2019-10-11T16:50:43+08:00">2019-10-11</time>
+              <time title="创建时间：2019-10-25 16:27:47" itemprop="dateCreated datePublished" datetime="2019-10-25T16:27:47+08:00">2019-10-25</time>
             </span>
           
             <span class="post-meta-item">
@@ -256,7 +256,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Javascript/" itemprop="url" rel="index"><span itemprop="name">Javascript</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Typescript/" itemprop="url" rel="index"><span itemprop="name">Typescript</span></a></span>
 
                 
                 
@@ -265,7 +265,7 @@
           
 
           
-            <span id="/2019/10/11/Javascript-The-extends-way/" class="post-meta-item leancloud_visitors" data-flag-title="Javascript 继承的几种方式" title="阅读次数">
+            <span id="/2019/10/25/Typescript-Interface/" class="post-meta-item leancloud_visitors" data-flag-title="Typescript 接口Interface" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -283,7 +283,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/10/11/Javascript-The-extends-way/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/10/11/Javascript-The-extends-way/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/10/25/Typescript-Interface/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/10/25/Typescript-Interface/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -297,17 +297,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="1-原型链继承"><a href="#1-原型链继承" class="headerlink" title="1.原型链继承"></a>1.原型链继承</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Father</span> (<span class="params">name</span>) </span>&#123; <span class="keyword">this</span>.name = name &#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Boy</span> (<span class="params"></span>) </span>&#123; <span class="keyword">this</span>.name = <span class="string">"Tom"</span> &#125;</span><br><span class="line"><span class="comment">// 让 新实例的原型 = 父例</span></span><br><span class="line">Boy.prototype = <span class="keyword">new</span> Father() <span class="comment">// 重点</span></span><br><span class="line"><span class="keyword">var</span> tom = <span class="keyword">new</span> Boy()</span><br><span class="line"><span class="built_in">console</span>.log(tom.name)</span><br></pre></td></tr></table></figure><a id="more"></a>
+        <p>接口起到一种限制和规范的作用<br>接口定义了某一批类所需要遵守的规范<br>一个接口可以对多个方法进行约束<br>接口可以继承</p><h3 id="类-类型-接口-implements"><a href="#类-类型-接口-implements" class="headerlink" title="类(类型)接口 (implements)"></a>类(类型)接口 (implements)</h3><p>和抽像类有点类似</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">interface Animal &#123;</span><br><span class="line">    name:string;</span><br><span class="line">    eat(str:string):<span class="keyword">void</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="title">implements</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    name:string;</span><br><span class="line">    <span class="keyword">constructor</span> (name:string) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name</span><br><span class="line">    &#125;</span><br><span class="line">    run ():<span class="keyword">void</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span> here!`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> Dog(<span class="string">'Tom'</span>)</span><br><span class="line">d.run()</span><br><span class="line"><span class="comment">// Tom here!</span></span><br></pre></td></tr></table></figure><a id="more"></a>
 
-<p>缺点：父类属性一变子类也跟着变</p>
-<h3 id="2-借用构造函数继承"><a href="#2-借用构造函数继承" class="headerlink" title="2.借用构造函数继承"></a>2.借用构造函数继承</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Father</span> (<span class="params">name</span>) </span>&#123; <span class="keyword">this</span>.name = name &#125;</span><br><span class="line">Father.prototype.age = <span class="number">50</span> <span class="comment">// 没有被继承</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">girl</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    Father.call(<span class="keyword">this</span>, <span class="string">'Marry'</span>) <span class="comment">// 重点</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// girl.prototype = new Father() // 组合继承</span></span><br><span class="line"><span class="keyword">var</span> marry = <span class="keyword">new</span> girl()</span><br><span class="line"><span class="built_in">console</span>.log(marry.name)</span><br><span class="line"><span class="built_in">console</span>.log(marry.age) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
 
-<p>特点：<br>1、只继承了父类构造函数的属性，没有继承父类原型的属性<br>2、可以继承多个构造函数属性（call多个）<br>3、在子实例中可向父实例传参</p>
-<p>缺点：<br>1、只能继承父类构造函数的属性。<br>2、无法实现构造函数的复用。（每次用每次都要重新调用）<br>3、每个新实例都有父类构造函数的副本，臃肿</p>
-<h3 id="3-组合继承"><a href="#3-组合继承" class="headerlink" title="3.组合继承"></a>3.组合继承</h3><p>同时使用上面两种继承<br>缺点：调用了两次父类构造函数（耗内存），子类的构造函数会代替原型上的那个父类构造函数</p>
-<h3 id="4-寄生组合继承"><a href="#4-寄生组合继承" class="headerlink" title="4.寄生组合继承"></a>4.寄生组合继承</h3><p>与组合相似</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Father</span> (<span class="params">name</span>) </span>&#123; <span class="keyword">this</span>.name = name &#125;</span><br><span class="line">Father.prototype.getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="keyword">this</span>.name &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Man</span> (<span class="params">age</span>) </span>&#123;</span><br><span class="line">    Father.call(<span class="keyword">this</span>, <span class="string">'Jack'</span>)</span><br><span class="line">    <span class="keyword">this</span>.age = age</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> Super = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">    Super.prototype = Father.prototype;</span><br><span class="line">    Man.prototype = <span class="keyword">new</span> Super()</span><br><span class="line">&#125;)()</span><br><span class="line"><span class="comment">// 相当于 Man.prototype = new Father()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> man = <span class="keyword">new</span> Man(<span class="number">18</span>)</span><br><span class="line"><span class="built_in">console</span>.log(man.getName())</span><br></pre></td></tr></table></figure>
 
+<h3 id="属性类接口"><a href="#属性类接口" class="headerlink" title="属性类接口"></a>属性类接口</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">interface Fullname &#123;</span><br><span class="line">    firstname: string; <span class="comment">// 据说不加; 可能会报错</span></span><br><span class="line">    lastname?: string; <span class="comment">// 可选属性</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printName</span> (<span class="params">name:Fullname</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;name.firstname&#125;</span>-<span class="subst">$&#123;name.lastname&#125;</span>`</span>)</span><br><span class="line">&#125;</span><br><span class="line">printName(&#123; <span class="attr">firstname</span>: <span class="string">'Michael'</span>, <span class="attr">lastname</span>: <span class="string">'Jackson'</span> &#125;)</span><br><span class="line"><span class="comment">// var obj = &#123; age: 20, .. &#125;</span></span><br><span class="line"><span class="comment">// printName(obj)</span></span><br><span class="line"><span class="comment">// 如果存在其他属性(age)，则可能会报错</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="函数-属性-类型接口"><a href="#函数-属性-类型接口" class="headerlink" title="函数(属性)类型接口"></a>函数(属性)类型接口</h3><p>对方法传入的参数 以及返回值进行约束</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">interface Fullname &#123;</span><br><span class="line">    (firstname:string, <span class="attr">lastname</span>:string):string;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> printName:Fullname = <span class="function"><span class="keyword">function</span> (<span class="params">firstname:string, lastname:string</span>):<span class="title">void</span> </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;firstname&#125;</span>.<span class="subst">$&#123;lastname&#125;</span>`</span>)</span><br><span class="line">&#125;</span><br><span class="line">printName(<span class="string">'Michael'</span>, <span class="string">'Jackson'</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="属性-可索引接口"><a href="#属性-可索引接口" class="headerlink" title="(属性)可索引接口"></a>(属性)可索引接口</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 数组的约束</span></span><br><span class="line">interface UserArr &#123;</span><br><span class="line">    [index:number]:string</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr:UserArr = [<span class="string">'aaa'</span>, <span class="string">'bbb'</span>]</span><br><span class="line"><span class="built_in">console</span>.log(arr[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对象的约束</span></span><br><span class="line">interface UserObj &#123;</span><br><span class="line">    [index:string]:string</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr:UserObj = &#123; <span class="attr">name</span>: <span class="string">'张三'</span> &#125;</span><br><span class="line"><span class="built_in">console</span>.log(arr)</span><br></pre></td></tr></table></figure>
+
+<h3 id="接口的继承"><a href="#接口的继承" class="headerlink" title="接口的继承"></a>接口的继承</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">interface Animal &#123;</span><br><span class="line">    eat():<span class="keyword">void</span>;</span><br><span class="line">&#125;</span><br><span class="line">interface Person extends Animal &#123;</span><br><span class="line">    work():<span class="keyword">void</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以同时继承父类和接口，比如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">Father</span> <span class="title">implement</span> <span class="title">Animal</span> </span>&#123;&#125;</span><br><span class="line"><span class="comment">// 儿子 继承 父亲(类)，并且是动物 (接口)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="接口-interface-和-抽象-abstract-的区别"><a href="#接口-interface-和-抽象-abstract-的区别" class="headerlink" title="接口 (interface) 和 抽象 (abstract) 的区别"></a>接口 (interface) 和 抽象 (abstract) 的区别</h3><p><a href="https://zhidao.baidu.com/question/924216810161449579.html" target="_blank" rel="noopener">https://zhidao.baidu.com/question/924216810161449579.html</a><br>一个类可以实现多个interface，但一个类只能继承一个abstract class<br>例如：interface Cat extends Animal, Feline {</p>
+<p>这方面的问题还有待项目实战中探讨</p>
 
     </div>
 
@@ -333,8 +340,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/10/08/Javascript-Object-prototype-hasOwnProperty/" rel="next" title="Object.prototype.hasOwnProperty() 方法">
-                  <i class="fa fa-chevron-left"></i> Object.prototype.hasOwnProperty() 方法
+                <a href="/2019/10/25/Typescript-Class/" rel="next" title="Typescript 类 (传参、继承super、多态)">
+                  <i class="fa fa-chevron-left"></i> Typescript 类 (传参、继承super、多态)
                 </a>
               
             </div>
@@ -343,8 +350,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/10/25/Typescript-Variable/" rel="prev" title="Typescript 数据类型">
-                  Typescript 数据类型 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/10/25/Typescript-Genericity/" rel="prev" title="Typescript 泛型">
+                  Typescript 泛型 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -394,7 +401,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-原型链继承"><span class="nav-text">1.原型链继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-借用构造函数继承"><span class="nav-text">2.借用构造函数继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-组合继承"><span class="nav-text">3.组合继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-寄生组合继承"><span class="nav-text">4.寄生组合继承</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#类-类型-接口-implements"><span class="nav-text">类(类型)接口 (implements)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性类接口"><span class="nav-text">属性类接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数-属性-类型接口"><span class="nav-text">函数(属性)类型接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性-可索引接口"><span class="nav-text">(属性)可索引接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接口的继承"><span class="nav-text">接口的继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接口-interface-和-抽象-abstract-的区别"><span class="nav-text">接口 (interface) 和 抽象 (abstract) 的区别</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
