@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://imure.cn/2019/10/25/Typescript-Genericity/</loc>
+    <lastmod>2019-10-25</lastmod>
+  </url>
+  
+  <url>
     <loc>http://imure.cn/2019/10/25/Typescript-Methods/</loc>
     <lastmod>2019-10-25</lastmod>
   </url>
@@ -23,11 +28,6 @@
   
   <url>
     <loc>http://imure.cn/2019/10/25/Typescript-Interface/</loc>
-    <lastmod>2019-10-25</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://imure.cn/2019/10/25/Typescript-Genericity/</loc>
     <lastmod>2019-10-25</lastmod>
   </url>
   
