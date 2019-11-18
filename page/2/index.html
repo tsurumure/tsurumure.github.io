@@ -54,33 +54,28 @@
   };
 </script>
 
-  <meta name="description" content="ES5:12345678function Person(name)&amp;#123;    this.name=name;    this.run = function () &amp;#123;        alert(this.name + &apos; es5!&apos;)    &amp;#125;&amp;#125;var p=new Person(&apos;张三&apos;);p.run()">
-<meta name="keywords" content="学习笔记">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Typescript 类 (传参、继承super、多态)">
-<meta property="og:url" content="http://imure.cn/2019/10/25/Typescript-Class/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Mure">
+<meta property="og:url" content="http://imure.cn/page/2/index.html">
 <meta property="og:site_name" content="Mure">
-<meta property="og:description" content="ES5:12345678function Person(name)&amp;#123;    this.name=name;    this.run = function () &amp;#123;        alert(this.name + &apos; es5!&apos;)    &amp;#125;&amp;#125;var p=new Person(&apos;张三&apos;);p.run()">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-25T08:35:45.565Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Typescript 类 (传参、继承super、多态)">
-<meta name="twitter:description" content="ES5:12345678function Person(name)&amp;#123;    this.name=name;    this.run = function () &amp;#123;        alert(this.name + &apos; es5!&apos;)    &amp;#125;&amp;#125;var p=new Person(&apos;张三&apos;);p.run()">
-  <link rel="canonical" href="http://imure.cn/2019/10/25/Typescript-Class/">
+<meta name="twitter:title" content="Mure">
+  <link rel="canonical" href="http://imure.cn/page/2/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: true,
+    isHome: true,
+    isPost: false,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>Typescript 类 (传参、继承super、多态) | Mure</title>
+  <title>Mure</title>
   
 
 
@@ -213,13 +208,12 @@
 
           <div id="content" class="content">
             
-
   <div class="posts-expand">
-      
+        
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://imure.cn/2019/10/25/Typescript-Class/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://imure.cn/2019/10/08/Javascript-Object-prototype-hasOwnProperty/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mure">
@@ -231,8 +225,9 @@
       <meta itemprop="name" content="Mure">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Typescript 类 (传参、继承super、多态)
-
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/10/08/Javascript-Object-prototype-hasOwnProperty/" class="post-title-link" itemprop="url">Object.prototype.hasOwnProperty() 方法</a>
           
         </h1>
 
@@ -247,7 +242,7 @@
                 
               
 
-              <time title="创建时间：2019-10-25 16:22:49" itemprop="dateCreated datePublished" datetime="2019-10-25T16:22:49+08:00">2019-10-25</time>
+              <time title="创建时间：2019-10-08 14:42:13" itemprop="dateCreated datePublished" datetime="2019-10-08T14:42:13+08:00">2019-10-08</time>
             </span>
           
             <span class="post-meta-item">
@@ -256,7 +251,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Typescript/" itemprop="url" rel="index"><span itemprop="name">Typescript</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Javascript/" itemprop="url" rel="index"><span itemprop="name">Javascript</span></a></span>
 
                 
                 
@@ -265,7 +260,7 @@
           
 
           
-            <span id="/2019/10/25/Typescript-Class/" class="post-meta-item leancloud_visitors" data-flag-title="Typescript 类 (传参、继承super、多态)" title="阅读次数">
+            <span id="/2019/10/08/Javascript-Object-prototype-hasOwnProperty/" class="post-meta-item leancloud_visitors" data-flag-title="Object.prototype.hasOwnProperty() 方法" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -283,7 +278,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/10/25/Typescript-Class/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/10/25/Typescript-Class/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/10/08/Javascript-Object-prototype-hasOwnProperty/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/10/08/Javascript-Object-prototype-hasOwnProperty/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -297,77 +292,38 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>ES5:</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name=name;</span><br><span class="line">    <span class="keyword">this</span>.run = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(<span class="keyword">this</span>.name + <span class="string">' es5!'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> p=<span class="keyword">new</span> Person(<span class="string">'张三'</span>);</span><br><span class="line">p.run()</span><br></pre></td></tr></table></figure><a id="more"></a>
-
-
-<p>Typescript:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    name:string; <span class="comment">// 属性  前面省略了public关键词</span></span><br><span class="line">    <span class="comment">// 构造方法</span></span><br><span class="line">    <span class="keyword">constructor</span> (n:string) &#123; <span class="comment">// 构造函数   实例化类的时候触发的方法</span></span><br><span class="line">        <span class="keyword">this</span>.name = n</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 实例方法</span></span><br><span class="line">    run():<span class="keyword">void</span> &#123;</span><br><span class="line">        alert(<span class="keyword">this</span>.name + <span class="string">' typescript!'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> p=<span class="keyword">new</span> Person(<span class="string">'张三'</span>);</span><br><span class="line">p.run()</span><br></pre></td></tr></table></figure>
-
-<h3 id="参数传递-赋值"><a href="#参数传递-赋值" class="headerlink" title="参数传递/赋值:"></a>参数传递/赋值:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    name:string;</span><br><span class="line">    getName():string &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">    &#125;</span><br><span class="line">    setName(name:string):<span class="keyword">void</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="继承-super"><a href="#继承-super" class="headerlink" title="继承 (super):"></a>继承 (super):</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    name:string; age:number;</span><br><span class="line">    contructor (name:string, <span class="attr">age</span>:number) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name; <span class="keyword">this</span>.age = age</span><br><span class="line">    &#125;</span><br><span class="line">    run():string &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span> is <span class="subst">$&#123;<span class="keyword">this</span>.age&#125;</span>`</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Boy</span> <span class="keyword">extends</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    contructor (name:string, <span class="attr">age</span>:number) &#123;</span><br><span class="line">        <span class="keyword">super</span>(name, age)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> Boy(<span class="string">'Tom'</span>, <span class="number">20</span>)</span><br><span class="line">b.run()</span><br></pre></td></tr></table></figure>
-
-<p>参数 修饰符 (public、protected、private)</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public <span class="comment">// 公有          在当前类里面、 子类  、类外面都可以访问</span></span><br><span class="line">protected <span class="comment">// 保护类型    在当前类里面、子类里面可以访问 ，在类外部没法访问</span></span><br><span class="line">private <span class="comment">// 私有         在当前类里面可以访问，子类、类外部都没法访问</span></span><br><span class="line"><span class="comment">// 属性如果不加修饰符 默认就是 公有 （public）</span></span><br><span class="line"><span class="keyword">static</span> <span class="comment">// 静态方法/属性</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>父类定义一个方法不去实现，让继承它的子类去实现<br>每一个子类有不同的表现<br>多态属于继承</p>
-
+          <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty" target="_blank" rel="noopener">参考链接</a><br>Javascript 属性对象的 hasOwnProperty 方法 </p><h3 id="判断自身属性是否存在"><a href="#判断自身属性是否存在" class="headerlink" title="判断自身属性是否存在"></a>判断自身属性是否存在</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">o.prop = <span class="string">'exists'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(o.hasOwnProperty(<span class="string">'prop'</span>));  <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeO</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  o.newprop = o.prop;</span><br><span class="line">  <span class="keyword">delete</span> o.prop;</span><br><span class="line">&#125;</span><br><span class="line">changeO();</span><br><span class="line"></span><br><span class="line">o.hasOwnProperty(<span class="string">'prop'</span>);       <span class="comment">// false</span></span><br><span class="line">o.hasOwnProperty(<span class="string">'newprop'</span>);    <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+          <!--/noindex-->
+        
+      
     </div>
 
     
     
     
-        
-      
-
       <footer class="post-footer">
-          
-            
-          
-          <div class="post-tags">
-            
-              <a href="/tags/学习笔记/" rel="tag"># 学习笔记</a>
-            
-          </div>
-        
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-              
-                <a href="/2019/10/25/Typescript-Methods/" rel="next" title="Typescript 方法 (静态Static、抽象Abstract)">
-                  <i class="fa fa-chevron-left"></i> Typescript 方法 (静态Static、抽象Abstract)
-                </a>
-              
-            </div>
-
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/10/25/Typescript-Interface/" rel="prev" title="Typescript 接口Interface">
-                  Typescript 接口Interface <i class="fa fa-chevron-right"></i>
-                </a>
-              
-            </div>
-          </div>
+          <div class="post-eof"></div>
         
       </footer>
-    
   </article>
   
   
   
 
+    
   </div>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
 
 
           </div>
           
-    
-    <div class="comments" id="comments"></div>
-  
 
         </div>
           
@@ -380,11 +336,6 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
-        
-        
-        
-        
-      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -397,8 +348,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#参数传递-赋值"><span class="nav-text">参数传递/赋值:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承-super"><span class="nav-text">继承 (super):</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多态"><span class="nav-text">多态</span></a></li></ol></div>
-        
       </div>
       <!--/noindex-->
 
@@ -462,6 +411,10 @@
       </div>
 
       <!-- 需要重新 hexo s 才能看到-->
+      <div class="tagclouds">
+      <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a>
+      </div>
+      
 
     </div>
 

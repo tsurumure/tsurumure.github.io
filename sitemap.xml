@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://imure.cn/2019/11/18/React-native-get-started-android/</loc>
+    <lastmod>2019-11-18</lastmod>
+  </url>
+  
+  <url>
     <loc>http://imure.cn/2019/10/25/Typescript-Genericity/</loc>
     <lastmod>2019-10-25</lastmod>
   </url>
