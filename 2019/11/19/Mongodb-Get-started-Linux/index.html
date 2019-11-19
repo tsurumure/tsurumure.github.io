@@ -54,14 +54,19 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Mure">
-<meta property="og:url" content="http://imure.cn/tags/学习笔记/page/2/index.html">
+  <meta name="description" content="安装 MongodbMongoDB shell version v4.0.101.下载:  https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-4.0.10.tgz2.通过 FTP 软件上传到自定义目录 (例如 /home/www)3.解压并修改目录名称">
+<meta name="keywords" content="学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mongodb-Get-started-Linux">
+<meta property="og:url" content="http://imure.cn/2019/11/19/Mongodb-Get-started-Linux/index.html">
 <meta property="og:site_name" content="Mure">
+<meta property="og:description" content="安装 MongodbMongoDB shell version v4.0.101.下载:  https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-4.0.10.tgz2.通过 FTP 软件上传到自定义目录 (例如 /home/www)3.解压并修改目录名称">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-19T01:33:03.134Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mure">
-  <link rel="canonical" href="http://imure.cn/tags/学习笔记/page/2/">
+<meta name="twitter:title" content="Mongodb-Get-started-Linux">
+<meta name="twitter:description" content="安装 MongodbMongoDB shell version v4.0.101.下载:  https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-4.0.10.tgz2.通过 FTP 软件上传到自定义目录 (例如 /home/www)3.解压并修改目录名称">
+  <link rel="canonical" href="http://imure.cn/2019/11/19/Mongodb-Get-started-Linux/">
 
 
 <script id="page-configurations">
@@ -69,13 +74,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>标签: 学习笔记 | Mure</title>
+  <title>Mongodb-Get-started-Linux | Mure</title>
   
 
 
@@ -206,172 +211,162 @@
         <div class="content-wrap">
             
 
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-  
-
           <div id="content" class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">学习笔记<small>标签</small>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://imure.cn/2019/11/19/Mongodb-Get-started-Linux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mure">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mure">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Mongodb-Get-started-Linux
+
+          
         </h1>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-19 09:30:50" itemprop="dateCreated datePublished" datetime="2019-11-19T09:30:50+08:00">2019-11-19</time>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Mongodb/" itemprop="url" rel="index"><span itemprop="name">Mongodb</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span id="/2019/11/19/Mongodb-Get-started-Linux/" class="post-meta-item leancloud_visitors" data-flag-title="Mongodb-Get-started-Linux" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/11/19/Mongodb-Get-started-Linux/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/11/19/Mongodb-Get-started-Linux/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+        <h3 id="安装-Mongodb"><a href="#安装-Mongodb" class="headerlink" title="安装 Mongodb"></a>安装 Mongodb</h3><p>MongoDB shell version v4.0.10<br>1.下载:  <a href="https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-4.0.10.tgz" target="_blank" rel="noopener">https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-4.0.10.tgz</a><br>2.通过 FTP 软件上传到自定义目录 (例如 /home/www)<br>3.解压并修改目录名称</p><a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd /home/www</span><br><span class="line">$ tar -zxvf mongodb-linux-x86_64<span class="number">-4.0</span><span class="number">.10</span>.tgz</span><br><span class="line">$ mv mongodb-linux-x86_64<span class="number">-4.0</span><span class="number">.10</span> /usr/local/mongodb</span><br></pre></td></tr></table></figure>
 
-  
-  
+<p>4.设置环境变量 (软链接)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ln -s /usr/local/mongodb/bin/mongo /usr/local/bin/mongo</span><br><span class="line">$ ln -s /usr/local/mongodb/bin/mongod /usr/local/bin/mongod</span><br><span class="line">$ ln -s /usr/local/mongodb/bin/mongorestore /usr/local/bin/mongorestore</span><br></pre></td></tr></table></figure>
 
-  
+<p>5.开启服务</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir /opt/mongodb/data</span><br><span class="line">$ mongod --dbpath /opt/mongodb/data/db --port <span class="number">65522</span> --bind_ip <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> --syslog --fork</span><br></pre></td></tr></table></figure>
+
+<p>更多步骤参考：<a href="https://www.runoob.com/mongodb/mongodb-linux-install.html" target="_blank" rel="noopener">https://www.runoob.com/mongodb/mongodb-linux-install.html</a></p>
+<h3 id="初次启动服务-无授权验证-Linux"><a href="#初次启动服务-无授权验证-Linux" class="headerlink" title="初次启动服务 (无授权验证) (Linux)"></a>初次启动服务 (无授权验证) (Linux)</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ mongo <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">65522</span></span><br><span class="line"><span class="comment">// 添加用户 &#123; admin &#125;, &#123; dev &#125; (添加方法见 Window 篇)</span></span><br><span class="line">$ db.shutdownServer()</span><br><span class="line">$ exit</span><br></pre></td></tr></table></figure>
+
+<h3 id="再次启动服务-带授权验证-Linux"><a href="#再次启动服务-带授权验证-Linux" class="headerlink" title="再次启动服务 (带授权验证) (Linux)"></a>再次启动服务 (带授权验证) (Linux)</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongod --dbpath /opt/mongodb/data/db --auth --port <span class="number">65522</span> --bind_ip <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> --syslog --fork</span><br></pre></td></tr></table></figure>
+
+<h3 id="以账号密码的形式登录"><a href="#以账号密码的形式登录" class="headerlink" title="以账号密码的形式登录"></a>以账号密码的形式登录</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mongo <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">65522</span> -u dev -p <span class="number">123456</span> --authenticationDatabase admin</span><br><span class="line">$ show dbs</span><br></pre></td></tr></table></figure>
+
+<p>创建用户、创建数据库 等方法参考 Window 与 MacOS 篇</p>
+
+    </div>
+
     
-    <div class="collection-year">
-      <h1 class="collection-header">2019</h1>
-    </div>
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-10-25T15:59:17+08:00"
-              content="2019-10-25">
-          10-25
-        </time>
-      </div>
-
-      <h2 class="post-title">
+    
+    
         
-          <a class="post-title-link" href="/2019/10/25/Typescript-Function-params/" itemprop="url">
-            <span itemprop="name">Typescript 函数参数</span>
-          </a>
-        
-      </h2>
+      
 
-    </header>
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/学习笔记/" rel="tag"># 学习笔记</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/11/19/Mongodb-Get-started-MacOS/" rel="next" title="Mongodb-Get-started-MacOS">
+                  <i class="fa fa-chevron-left"></i> Mongodb-Get-started-MacOS
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
   </article>
-
-
-
+  
   
   
 
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-10-25T15:50:26+08:00"
-              content="2019-10-25">
-          10-25
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/25/Typescript-Variable/" itemprop="url">
-            <span itemprop="name">Typescript 数据类型</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-10-11T16:50:43+08:00"
-              content="2019-10-11">
-          10-11
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/11/Javascript-The-extends-way/" itemprop="url">
-            <span itemprop="name">Javascript 继承的几种方式</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-10-08T14:42:13+08:00"
-              content="2019-10-08">
-          10-08
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/08/Javascript-Object-prototype-hasOwnProperty/" itemprop="url">
-            <span itemprop="name">Object.prototype.hasOwnProperty() 方法</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-    </div>
   </div>
-  
-  
-  
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/tags/学习笔记/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/tags/学习笔记/">1</a><span class="page-number current">2</span>
-  </nav>
-
 
 
           </div>
           
+    
+    <div class="comments" id="comments"></div>
+  
 
         </div>
           
@@ -384,6 +379,11 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -396,6 +396,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Mongodb"><span class="nav-text">安装 Mongodb</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初次启动服务-无授权验证-Linux"><span class="nav-text">初次启动服务 (无授权验证) (Linux)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#再次启动服务-带授权验证-Linux"><span class="nav-text">再次启动服务 (带授权验证) (Linux)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#以账号密码的形式登录"><span class="nav-text">以账号密码的形式登录</span></a></li></ol></div>
+        
       </div>
       <!--/noindex-->
 
@@ -459,10 +461,6 @@
       </div>
 
       <!-- 需要重新 hexo s 才能看到-->
-      <div class="tagclouds">
-      <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a>
-      </div>
-      
 
     </div>
 
