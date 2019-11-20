@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+<link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=20191007">
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="CentOS Linux release 7.6.1810使用 crontab 定时执行 shell脚本实现进程监控，当进程发生异常预警时，发送邮件通知管理员（集群多用户）邮件发送器 MailxCentOS 使用 Mailx 通过465端口发送邮件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mongodb 实现监控与邮件报警">
+<meta property="og:url" content="http://imure.cn/2019/11/20/Mongodb-Monitor-and-send-email/index.html">
+<meta property="og:site_name" content="Mure">
+<meta property="og:description" content="CentOS Linux release 7.6.1810使用 crontab 定时执行 shell脚本实现进程监控，当进程发生异常预警时，发送邮件通知管理员（集群多用户）邮件发送器 MailxCentOS 使用 Mailx 通过465端口发送邮件">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-20T08:13:41.954Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mongodb 实现监控与邮件报警">
+<meta name="twitter:description" content="CentOS Linux release 7.6.1810使用 crontab 定时执行 shell脚本实现进程监控，当进程发生异常预警时，发送邮件通知管理员（集群多用户）邮件发送器 MailxCentOS 使用 Mailx 通过465端口发送邮件">
+  <link rel="canonical" href="http://imure.cn/2019/11/20/Mongodb-Monitor-and-send-email/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Mongodb 实现监控与邮件报警 | Mure</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <meta http-equiv="pragma" CONTENT="no-cache">
+  <meta http-equiv="Cache-Control" content="no-siteapp, no-store, must-revalidate"/>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mure</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://imure.cn/2019/11/20/Mongodb-Monitor-and-send-email/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mure">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mure">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Mongodb 实现监控与邮件报警
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-20 16:08:47" itemprop="dateCreated datePublished" datetime="2019-11-20T16:08:47+08:00">2019-11-20</time>
+            </span>
+          
+
+          
+            <span id="/2019/11/20/Mongodb-Monitor-and-send-email/" class="post-meta-item leancloud_visitors" data-flag-title="Mongodb 实现监控与邮件报警" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/11/20/Mongodb-Monitor-and-send-email/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/11/20/Mongodb-Monitor-and-send-email/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>CentOS Linux release 7.6.1810<br>使用 crontab 定时执行 shell脚本实现进程监控，<br>当进程发生异常预警时，发送邮件通知管理员（集群多用户）</p><h3 id="邮件发送器-Mailx"><a href="#邮件发送器-Mailx" class="headerlink" title="邮件发送器 Mailx"></a>邮件发送器 Mailx</h3><p><a href="https://www.imure.cn/2019/11/19/CentOS-Mailx/" target="_blank" rel="noopener">CentOS 使用 Mailx 通过465端口发送邮件</a></p><a id="more"></a>
+
+<h3 id="发信人参数配置"><a href="#发信人参数配置" class="headerlink" title="发信人参数配置"></a>发信人参数配置</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/opt/mongodb/shell/mongodb_cluster_config.txt</span><br><span class="line">ipAddressAndPorts=<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">62323</span></span><br><span class="line">semdEmailTo=<span class="number">405348097</span>@qq.com</span><br><span class="line">sendEmailTitle=测试节点监控异常标题</span><br><span class="line">sendEmailContent=测试节点监控异常内容</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建脚本"><a href="#创建脚本" class="headerlink" title="创建脚本"></a>创建脚本</h3><p>/opt/mongodb/shell/watch.sh</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/sh</span></span><br><span class="line"># 使用 which sh 检查sh命令位置</span><br><span class="line">db_backups_conf=<span class="string">"/opt/mongodb/shell/mongodb_cluster_config.txt"</span></span><br><span class="line"></span><br><span class="line"># 判断文件是否存在</span><br><span class="line"><span class="keyword">if</span> [ -f <span class="string">"$&#123;db_backups_conf&#125;"</span> ];then</span><br><span class="line">	echo $(date +<span class="string">'%Y-%m-%d %H:%M:%S'</span>)<span class="string">" 发现配置信息文件存在"</span></span><br><span class="line">	dbArrOne=($(awk -F<span class="string">'[=]'</span> <span class="string">'&#123;print $1&#125;'</span> $&#123;db_backups_conf&#125; ))</span><br><span class="line">	dbArrTwo=($(awk -F<span class="string">'[=]'</span> <span class="string">'&#123;print $2&#125;'</span> $&#123;db_backups_conf&#125;))</span><br><span class="line">	declare -A map=()</span><br><span class="line">	</span><br><span class="line">	# 将 db_backups_conf 配置文件中的信息存储在map中</span><br><span class="line">	for((i=0;i&lt;$&#123;#dbArrOne[@]&#125;;i++))</span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">		map[$&#123;dbArrOne[i]&#125;]=$&#123;dbArrTwo[i]&#125;</span><br><span class="line">	done	</span><br><span class="line">	</span><br><span class="line">	# 获取要监测集群节点IP和端口号组合的字符串</span><br><span class="line">	ipPortsStr=$&#123;map[<span class="string">"ipAddressAndPorts"</span>]&#125;</span><br><span class="line">	# 获取收件人的邮件账号的字符串</span><br><span class="line">	semdEmailTo=$&#123;map[<span class="string">"semdEmailTo"</span>]&#125;</span><br><span class="line">	# 获取默认的字符串分隔符</span><br><span class="line">	old_ifs=<span class="string">"$IFS"</span></span><br><span class="line">	# 设置字符串分隔符为逗号</span><br><span class="line">	IFS=<span class="string">","</span></span><br><span class="line"> </span><br><span class="line">	# 将要集群节点IP和PORT的value值的字符串进行分隔，获取一个数组</span><br><span class="line">	ipPortArr=($ipPortsStr)</span><br><span class="line">	# 将收件人的邮件账号value值的字符串进行分隔，获取一个数组</span><br><span class="line">	semdEmailToArr=($semdEmailTo)</span><br><span class="line">	# 将字符串的分隔符重新设置为默认的分隔符</span><br><span class="line">	IFS=<span class="string">"$old_ifs"</span></span><br><span class="line">	</span><br><span class="line">	# 定义一个是否需要发送异常提醒邮件变量</span><br><span class="line">	isSendEmailStr=<span class="number">0</span></span><br><span class="line">	# 定义一个出现异常集群节点ip和端口号存储的变量</span><br><span class="line">	errorIpPort=<span class="string">""</span></span><br><span class="line">	</span><br><span class="line">	# 执行命令</span><br><span class="line">	&#123;</span><br><span class="line">		# 遍历集群节点，监测节点是否异常宕机</span><br><span class="line">		<span class="keyword">for</span> ipPort <span class="keyword">in</span> $&#123;ipPortArr[@]&#125;;</span><br><span class="line">		<span class="keyword">do</span></span><br><span class="line">			# 检测mongodb节点是否异常宕机</span><br><span class="line">			netstat -anop | grep $&#123;ipPort&#125;</span><br><span class="line">			<span class="keyword">if</span> [ $? -ne <span class="number">1</span> ];then</span><br><span class="line">				echo $(date +<span class="string">'%Y-%m-%d %H:%M:%S'</span>)<span class="string">" mongodb集群节点正常："</span>$&#123;ipPort&#125;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				echo $(date +<span class="string">'%Y-%m-%d %H:%M:%S'</span>)<span class="string">" mongodb集群节点异常："</span>$&#123;ipPort&#125;</span><br><span class="line">				isSendEmailStr=<span class="number">1</span></span><br><span class="line">				errorIpPort=$&#123;errorIpPort&#125;<span class="string">""</span>$&#123;ipPort&#125;<span class="string">","</span></span><br><span class="line">			fi</span><br><span class="line">		done</span><br><span class="line">	&#125; || &#123;</span><br><span class="line">		isSendEmailStr=<span class="number">1</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	# 判断命令执行是否有异常，如果有异常就发送邮件</span><br><span class="line">	<span class="keyword">if</span> [$&#123;isSendEmailStr&#125; == <span class="string">"0"</span>];then</span><br><span class="line">			echo $(date +<span class="string">'%Y-%m-%d %H:%M:%S'</span>)<span class="string">" 执行mongodb集群节点监测全部正常"</span></span><br><span class="line">		<span class="keyword">else</span> </span><br><span class="line">			echo $(date +<span class="string">'%Y-%m-%d %H:%M:%S'</span>)<span class="string">" 执行mongodb集群节点监测有异常，开始发送邮件通知管理员"</span></span><br><span class="line">			</span><br><span class="line">			#遍历收件人的邮箱地址，逐个发送邮件</span><br><span class="line">			<span class="keyword">for</span> email <span class="keyword">in</span> $&#123;semdEmailToArr[@]&#125;;</span><br><span class="line">			<span class="keyword">do</span></span><br><span class="line">				echo $(date +<span class="string">'%Y-%m-%d %H:%M:%S'</span>)<span class="string">" 开始发送邮件："</span>$&#123;email&#125;</span><br><span class="line"> </span><br><span class="line">				echo <span class="string">""</span>$&#123;map[<span class="string">"sendEmailContent"</span>]&#125;<span class="string">",异常节点信息如下："</span>$&#123;errorIpPort&#125; | mail -s <span class="string">""</span>$&#123;map[<span class="string">"sendEmailTitle"</span>]&#125; $&#123;email&#125;</span><br><span class="line">			done</span><br><span class="line">			echo $(date +<span class="string">'%Y-%m-%d %H:%M:%S'</span>)<span class="string">" 执行mongodb集群节点监测有异常，成功发送邮件通知管理员"</span></span><br><span class="line">	fi</span><br><span class="line">	echo $(date +<span class="string">'%Y-%m-%d %H:%M:%S'</span>)<span class="string">" 脚本执行完毕"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	echo <span class="string">"文件不存在"</span></span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<h3 id="测试脚本"><a href="#测试脚本" class="headerlink" title="测试脚本"></a>测试脚本</h3><p>手动关闭 Mongo服务进程</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查看 mongodb 进程</span></span><br><span class="line">$ ps -ef|grep mongodb</span><br><span class="line"><span class="comment">// 输出 root   12611  1  0 17:05 ?   00:00:03 mongod --dbpath /opt/mongodb/data/db</span></span><br><span class="line"><span class="comment">// 杀死进程</span></span><br><span class="line">$ kill <span class="number">-2</span> <span class="number">12611</span></span><br><span class="line"><span class="comment">// 查看是否杀死成功</span></span><br><span class="line">$ ps -ef|grep mongodb</span><br><span class="line"><span class="comment">// 查看端口是否还会被占用</span></span><br><span class="line">$ netstat -anp|grep <span class="number">62323</span></span><br></pre></td></tr></table></figure>
+
+<p>执行脚本，成功的话会发送邮件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sh watch.sh</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用-Crontab-设置定时脚本"><a href="#使用-Crontab-设置定时脚本" class="headerlink" title="使用 Crontab 设置定时脚本"></a>使用 Crontab 设置定时脚本</h3><p><a href="https://www.imure.cn/2019/11/20/CentOS-Crontab/" target="_blank" rel="noopener">CentOS 使用 Crontab 定时任务</a><br>每1小时检测1次服务器，如果进程出现异常则发送邮件通知</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ crontab -e</span><br><span class="line"># 每1小时执行一次.</span><br><span class="line">* *<span class="regexp">/1 * * * sh /</span>opt/mongodb/shell/watch.sh</span><br><span class="line"></span><br><span class="line"># 每1分钟执行一次.(最少)</span><br><span class="line"># * * * * * sh /opt/mongodb/shell/watch.sh</span><br></pre></td></tr></table></figure>
+
+<p>如果想要执行一次异常之后关闭定时任务，可以通过 mv命令重命名 watch.sh</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/11/20/CentOS-Crontab/" rel="next" title="CentOS 使用 Crontab 定时任务">
+                  <i class="fa fa-chevron-left"></i> CentOS 使用 Crontab 定时任务
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#邮件发送器-Mailx"><span class="nav-text">邮件发送器 Mailx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发信人参数配置"><span class="nav-text">发信人参数配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建脚本"><span class="nav-text">创建脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试脚本"><span class="nav-text">测试脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-Crontab-设置定时脚本"><span class="nav-text">使用 Crontab 设置定时脚本</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/head.jpg"
+      alt="Mure">
+  <p class="site-author-name" itemprop="name">Mure</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+
+    <!-- 文章分类 -->
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+
+    <!--
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+    -->
+
+  </nav>
+</div>
+
+
+
+
+      </div>
+
+      <!-- 需要重新 hexo s 才能看到-->
+
+    </div>
+
+    <div class="sidebar-list-categories">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CentOS/">CentOS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/">Javascript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mongodb/">Mongodb</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-native/">React-native</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Typescript/">Typescript</a><span class="category-list-count">8</span></li></ul>
+    </div>
+
+  </aside>
+
+
+
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <!--
+  <span class="with-love" id="animate">
+    <i class="fa fa-github"></i>
+  </span>
+  -->
+
+  <span class="with-love" id="animate">
+    <a href="https://github.com/tsurumure" target="_blank"><i class="fa fa-github"></i></a>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mure</span>
+</div>
+
+        
+
+
+
+
+
+
+  
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+            
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.log('Failed to create', error);
+                });
+            
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.url;
+            var time = item.time;
+            leancloudSelector(url).innerText = time;
+          }
+          for (var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=1y4CXTcKFtkAxV7cLGpoGpIA-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': '1y4CXTcKFtkAxV7cLGpoGpIA-gzGzoHsz',
+            'X-LC-Key': 'DH56a09pavTlaY9KosgzCsPU',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+        if (localhost.test(document.URL)) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: '1y4CXTcKFtkAxV7cLGpoGpIA-gzGzoHsz',
+    appKey: 'DH56a09pavTlaY9KosgzCsPU',
+    placeholder: '欢迎留言',
+    avatar: 'source/images/avatar.gif',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: true,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?eca423a918fa43d68b9be5e38393acba";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
