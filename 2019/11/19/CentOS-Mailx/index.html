@@ -54,18 +54,18 @@
   };
 </script>
 
-  <meta name="description" content="CentOS Linux release 7.6.1810使用 QQ SMTP 发送邮件安装 Mailx1$ yum install mailx开启 SMTP 并获得授权码登录邮箱 - 设置 - 账户1.开启 SMTP2.获得 SMTP 授权码 (需要手机验证)">
+  <meta name="description" content="使用 QQ SMTP 发送邮件安装 Mailx1$ yum install mailx开启 SMTP 并获得授权码登录邮箱 - 设置 - 账户1.开启 SMTP2.获得 SMTP 授权码 (需要手机验证)设置 mail.rc设置发送者的邮箱信息">
 <meta name="keywords" content="学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS 使用 Mailx 通过465端口发送邮件">
 <meta property="og:url" content="http://imure.cn/2019/11/19/CentOS-Mailx/index.html">
 <meta property="og:site_name" content="Mure">
-<meta property="og:description" content="CentOS Linux release 7.6.1810使用 QQ SMTP 发送邮件安装 Mailx1$ yum install mailx开启 SMTP 并获得授权码登录邮箱 - 设置 - 账户1.开启 SMTP2.获得 SMTP 授权码 (需要手机验证)">
+<meta property="og:description" content="使用 QQ SMTP 发送邮件安装 Mailx1$ yum install mailx开启 SMTP 并获得授权码登录邮箱 - 设置 - 账户1.开启 SMTP2.获得 SMTP 授权码 (需要手机验证)设置 mail.rc设置发送者的邮箱信息">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-19T07:41:03.682Z">
+<meta property="og:updated_time" content="2019-11-20T08:16:45.198Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 使用 Mailx 通过465端口发送邮件">
-<meta name="twitter:description" content="CentOS Linux release 7.6.1810使用 QQ SMTP 发送邮件安装 Mailx1$ yum install mailx开启 SMTP 并获得授权码登录邮箱 - 设置 - 账户1.开启 SMTP2.获得 SMTP 授权码 (需要手机验证)">
+<meta name="twitter:description" content="使用 QQ SMTP 发送邮件安装 Mailx1$ yum install mailx开启 SMTP 并获得授权码登录邮箱 - 设置 - 账户1.开启 SMTP2.获得 SMTP 授权码 (需要手机验证)设置 mail.rc设置发送者的邮箱信息">
   <link rel="canonical" href="http://imure.cn/2019/11/19/CentOS-Mailx/">
 
 
@@ -297,11 +297,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>CentOS Linux release 7.6.1810<br>使用 QQ SMTP 发送邮件</p><h3 id="安装-Mailx"><a href="#安装-Mailx" class="headerlink" title="安装 Mailx"></a>安装 Mailx</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum install mailx</span><br></pre></td></tr></table></figure><h3 id="开启-SMTP-并获得授权码"><a href="#开启-SMTP-并获得授权码" class="headerlink" title="开启 SMTP 并获得授权码"></a>开启 SMTP 并获得授权码</h3><p>登录邮箱 - 设置 - 账户<br>1.开启 SMTP<br>2.获得 SMTP 授权码 (需要手机验证)</p><a id="more"></a>
+        <p>使用 QQ SMTP 发送邮件</p><h3 id="安装-Mailx"><a href="#安装-Mailx" class="headerlink" title="安装 Mailx"></a>安装 Mailx</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum install mailx</span><br></pre></td></tr></table></figure><h3 id="开启-SMTP-并获得授权码"><a href="#开启-SMTP-并获得授权码" class="headerlink" title="开启 SMTP 并获得授权码"></a>开启 SMTP 并获得授权码</h3><p>登录邮箱 - 设置 - 账户<br>1.开启 SMTP<br>2.获得 SMTP 授权码 (需要手机验证)</p><h3 id="设置-mail-rc"><a href="#设置-mail-rc" class="headerlink" title="设置 mail.rc"></a>设置 mail.rc</h3><p>设置发送者的邮箱信息</p><a id="more"></a>
 
 
 
-<h3 id="设置-mail-rc"><a href="#设置-mail-rc" class="headerlink" title="设置 mail.rc"></a>设置 mail.rc</h3><p>设置发送者的邮箱信息</p>
+
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> from=XXXXXXXX@qq.com</span><br><span class="line"><span class="keyword">set</span> smtp=smtps://smtp.qq.com:465</span><br><span class="line"><span class="keyword">set</span> smtp-auth-user=XXXXXXXXX@qq.com</span><br><span class="line"><span class="keyword">set</span> smtp-auth-password=*********  // 邮箱SMTP授权码</span><br><span class="line"><span class="keyword">set</span> smtp-auth=login</span><br><span class="line"><span class="keyword">set</span> ssl-verify=ignore</span><br><span class="line"><span class="keyword">set</span> nss-config-dir=/root/.certs</span><br></pre></td></tr></table></figure>
 
 <h3 id="设置证书"><a href="#设置证书" class="headerlink" title="设置证书"></a>设置证书</h3><p>由于阿里云默认禁用TCP 25端口，我们可以手动申请解封25端口，<br>我们可以使用465端口，使用以下命令生成并设置该证书</p>
@@ -418,7 +418,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -468,7 +468,7 @@
     </div>
 
     <div class="sidebar-list-categories">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CentOS/">CentOS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/">Javascript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mongodb/">Mongodb</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-native/">React-native</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Typescript/">Typescript</a><span class="category-list-count">8</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CentOS/">CentOS</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/">Javascript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mongodb/">Mongodb</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-native/">React-native</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Typescript/">Typescript</a><span class="category-list-count">8</span></li></ul>
     </div>
 
   </aside>

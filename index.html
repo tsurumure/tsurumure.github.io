@@ -213,6 +213,110 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://imure.cn/2019/11/21/Mongodb-replSet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mure">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mure">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/11/21/Mongodb-replSet/" class="post-title-link" itemprop="url">Mongodb 多主机热备份 (1主1副1仲裁)</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-21 16:04:04" itemprop="dateCreated datePublished" datetime="2019-11-21T16:04:04+08:00">2019-11-21</time>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Mongodb/" itemprop="url" rel="index"><span itemprop="name">Mongodb</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span id="/2019/11/21/Mongodb-replSet/" class="post-meta-item leancloud_visitors" data-flag-title="Mongodb 多主机热备份 (1主1副1仲裁)" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/11/21/Mongodb-replSet/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/11/21/Mongodb-replSet/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>小项目一般不会用到，只有当并发量大，宕机机率高的情况下才需要使用副本集模式</p><h3 id="模式介绍"><a href="#模式介绍" class="headerlink" title="模式介绍"></a>模式介绍</h3><p>mongodb集群有三种模式，主从模式，副本集模式、sharding分片模式。主从模式官网也不再推荐上生产环境，主要是安全性太低。副本集和sharding模式目前是用的最广的方案，通常这2种方案的选择通过数据量和并发数来权衡。</p>
+          <!--noindex-->
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://imure.cn/2019/11/20/Mongodb-Monitor-and-send-email/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -243,6 +347,19 @@
               
 
               <time title="创建时间：2019-11-20 16:08:47" itemprop="dateCreated datePublished" datetime="2019-11-20T16:08:47+08:00">2019-11-20</time>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Mongodb/" itemprop="url" rel="index"><span itemprop="name">Mongodb</span></a></span>
+
+                
+                
+              
             </span>
           
 
@@ -279,7 +396,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>CentOS Linux release 7.6.1810<br>使用 crontab 定时执行 shell脚本实现进程监控，<br>当进程发生异常预警时，发送邮件通知管理员（集群多用户）</p><h3 id="邮件发送器-Mailx"><a href="#邮件发送器-Mailx" class="headerlink" title="邮件发送器 Mailx"></a>邮件发送器 Mailx</h3><p><a href="https://www.imure.cn/2019/11/19/CentOS-Mailx/" target="_blank" rel="noopener">CentOS 使用 Mailx 通过465端口发送邮件</a></p>
+          <p>使用 crontab 定时执行 shell脚本实现进程监控，<br>当进程发生异常预警时，发送邮件通知管理员（集群多用户）</p><h3 id="邮件发送器-Mailx"><a href="#邮件发送器-Mailx" class="headerlink" title="邮件发送器 Mailx"></a>邮件发送器 Mailx</h3><p><a href="https://www.imure.cn/2019/11/19/CentOS-Mailx/" target="_blank" rel="noopener">CentOS 使用 Mailx 通过465端口发送邮件</a></p><h3 id="发信人参数配置"><a href="#发信人参数配置" class="headerlink" title="发信人参数配置"></a>发信人参数配置</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/opt/mongodb/shell/mongodb_cluster_config.txt</span><br><span class="line">ipAddressAndPorts=<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">62323</span></span><br><span class="line">semdEmailTo=<span class="number">405348097</span>@qq.com</span><br><span class="line">sendEmailTitle=测试节点监控异常标题</span><br><span class="line">sendEmailContent=测试节点监控异常内容</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           
           <!--/noindex-->
@@ -334,6 +451,19 @@
               
 
               <time title="创建时间：2019-11-20 15:58:23" itemprop="dateCreated datePublished" datetime="2019-11-20T15:58:23+08:00">2019-11-20</time>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CentOS/" itemprop="url" rel="index"><span itemprop="name">CentOS</span></a></span>
+
+                
+                
+              
             </span>
           
 
@@ -477,7 +607,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>CentOS Linux release 7.6.1810<br>使用 QQ SMTP 发送邮件</p><h3 id="安装-Mailx"><a href="#安装-Mailx" class="headerlink" title="安装 Mailx"></a>安装 Mailx</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum install mailx</span><br></pre></td></tr></table></figure><h3 id="开启-SMTP-并获得授权码"><a href="#开启-SMTP-并获得授权码" class="headerlink" title="开启 SMTP 并获得授权码"></a>开启 SMTP 并获得授权码</h3><p>登录邮箱 - 设置 - 账户<br>1.开启 SMTP<br>2.获得 SMTP 授权码 (需要手机验证)</p>
+          <p>使用 QQ SMTP 发送邮件</p><h3 id="安装-Mailx"><a href="#安装-Mailx" class="headerlink" title="安装 Mailx"></a>安装 Mailx</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum install mailx</span><br></pre></td></tr></table></figure><h3 id="开启-SMTP-并获得授权码"><a href="#开启-SMTP-并获得授权码" class="headerlink" title="开启 SMTP 并获得授权码"></a>开启 SMTP 并获得授权码</h3><p>登录邮箱 - 设置 - 账户<br>1.开启 SMTP<br>2.获得 SMTP 授权码 (需要手机验证)</p><h3 id="设置-mail-rc"><a href="#设置-mail-rc" class="headerlink" title="设置 mail.rc"></a>设置 mail.rc</h3><p>设置发送者的邮箱信息</p>
           <!--noindex-->
           
           <!--/noindex-->
@@ -1122,110 +1252,6 @@
   
 
     
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://imure.cn/2019/10/25/Typescript-Genericity/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mure">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mure">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/10/25/Typescript-Genericity/" class="post-title-link" itemprop="url">Typescript 泛型</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-25 16:32:20" itemprop="dateCreated datePublished" datetime="2019-10-25T16:32:20+08:00">2019-10-25</time>
-            </span>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Typescript/" itemprop="url" rel="index"><span itemprop="name">Typescript</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            <span id="/2019/10/25/Typescript-Genericity/" class="post-meta-item leancloud_visitors" data-flag-title="Typescript 泛型" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2019/10/25/Typescript-Genericity/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/10/25/Typescript-Genericity/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="与-Any-类似，-lt-T-gt-T"><a href="#与-Any-类似，-lt-T-gt-T" class="headerlink" title="与 :Any 类似， &lt;T&gt;, :T"></a>与 :Any 类似， &lt;T&gt;, :T</h3><p>但 :any 放弃了类型检查<br>我们想要实现：传入不同的类型返回不同的结果</p><p>通俗理解：<br>泛型就是解决 类 接口 方法的复用性<br>对不特定数据类型的支持(类型校验)</p><h3 id="泛型函数"><a href="#泛型函数" class="headerlink" title="泛型函数"></a>泛型函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// T 即泛型</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">GetData</span>&lt;<span class="title">T</span>&gt;(<span class="params">value:T</span>):<span class="title">T</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> value</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(GetData&lt;number&gt;(<span class="number">123</span>))</span><br><span class="line"><span class="built_in">console</span>.log(GetData&lt;string&gt;(<span class="string">'aaabbbccc'</span>))</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </article>
-  
-  
-  
-
-    
   </div>
 
   
@@ -1278,7 +1304,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1332,7 +1358,7 @@
     </div>
 
     <div class="sidebar-list-categories">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CentOS/">CentOS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/">Javascript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mongodb/">Mongodb</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-native/">React-native</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Typescript/">Typescript</a><span class="category-list-count">8</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CentOS/">CentOS</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/">Javascript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mongodb/">Mongodb</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-native/">React-native</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Typescript/">Typescript</a><span class="category-list-count">8</span></li></ul>
     </div>
 
   </aside>

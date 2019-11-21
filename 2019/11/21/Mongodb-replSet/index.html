@@ -54,19 +54,19 @@
   };
 </script>
 
-  <meta name="description" content="元组类型 tuple属于数组的一种，可以在同一个数组里面定义不同类型1let arr:[number, string] = [123, &apos;abc&apos;]枚举类型 enum一般用于状态码判断123emnu Status &amp;#123; &apos;error&apos;, &apos;success&apos; &amp;#125;let s:Status = Status.successconsole.log(s) // 1">
+  <meta name="description" content="小项目一般不会用到，只有当并发量大，宕机机率高的情况下才需要使用副本集模式模式介绍mongodb集群有三种模式，主从模式，副本集模式、sharding分片模式。主从模式官网也不再推荐上生产环境，主要是安全性太低。副本集和sharding模式目前是用的最广的方案，通常这2种方案的选择通过数据量和并发数来权衡。">
 <meta name="keywords" content="学习笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Typescript 数据类型">
-<meta property="og:url" content="http://imure.cn/2019/10/25/Typescript-Variable/index.html">
+<meta property="og:title" content="Mongodb 多主机热备份 (1主1副1仲裁)">
+<meta property="og:url" content="http://imure.cn/2019/11/21/Mongodb-replSet/index.html">
 <meta property="og:site_name" content="Mure">
-<meta property="og:description" content="元组类型 tuple属于数组的一种，可以在同一个数组里面定义不同类型1let arr:[number, string] = [123, &apos;abc&apos;]枚举类型 enum一般用于状态码判断123emnu Status &amp;#123; &apos;error&apos;, &apos;success&apos; &amp;#125;let s:Status = Status.successconsole.log(s) // 1">
+<meta property="og:description" content="小项目一般不会用到，只有当并发量大，宕机机率高的情况下才需要使用副本集模式模式介绍mongodb集群有三种模式，主从模式，副本集模式、sharding分片模式。主从模式官网也不再推荐上生产环境，主要是安全性太低。副本集和sharding模式目前是用的最广的方案，通常这2种方案的选择通过数据量和并发数来权衡。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-25T08:18:47.303Z">
+<meta property="og:updated_time" content="2019-11-21T08:07:24.205Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Typescript 数据类型">
-<meta name="twitter:description" content="元组类型 tuple属于数组的一种，可以在同一个数组里面定义不同类型1let arr:[number, string] = [123, &apos;abc&apos;]枚举类型 enum一般用于状态码判断123emnu Status &amp;#123; &apos;error&apos;, &apos;success&apos; &amp;#125;let s:Status = Status.successconsole.log(s) // 1">
-  <link rel="canonical" href="http://imure.cn/2019/10/25/Typescript-Variable/">
+<meta name="twitter:title" content="Mongodb 多主机热备份 (1主1副1仲裁)">
+<meta name="twitter:description" content="小项目一般不会用到，只有当并发量大，宕机机率高的情况下才需要使用副本集模式模式介绍mongodb集群有三种模式，主从模式，副本集模式、sharding分片模式。主从模式官网也不再推荐上生产环境，主要是安全性太低。副本集和sharding模式目前是用的最广的方案，通常这2种方案的选择通过数据量和并发数来权衡。">
+  <link rel="canonical" href="http://imure.cn/2019/11/21/Mongodb-replSet/">
 
 
 <script id="page-configurations">
@@ -80,7 +80,7 @@
   };
 </script>
 
-  <title>Typescript 数据类型 | Mure</title>
+  <title>Mongodb 多主机热备份 (1主1副1仲裁) | Mure</title>
   
 
 
@@ -219,7 +219,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://imure.cn/2019/10/25/Typescript-Variable/">
+    <link itemprop="mainEntityOfPage" href="http://imure.cn/2019/11/21/Mongodb-replSet/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mure">
@@ -231,7 +231,7 @@
       <meta itemprop="name" content="Mure">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Typescript 数据类型
+        <h1 class="post-title" itemprop="name headline">Mongodb 多主机热备份 (1主1副1仲裁)
 
           
         </h1>
@@ -247,7 +247,7 @@
                 
               
 
-              <time title="创建时间：2019-10-25 15:50:26" itemprop="dateCreated datePublished" datetime="2019-10-25T15:50:26+08:00">2019-10-25</time>
+              <time title="创建时间：2019-11-21 16:04:04" itemprop="dateCreated datePublished" datetime="2019-11-21T16:04:04+08:00">2019-11-21</time>
             </span>
           
             <span class="post-meta-item">
@@ -256,7 +256,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Typescript/" itemprop="url" rel="index"><span itemprop="name">Typescript</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Mongodb/" itemprop="url" rel="index"><span itemprop="name">Mongodb</span></a></span>
 
                 
                 
@@ -265,7 +265,7 @@
           
 
           
-            <span id="/2019/10/25/Typescript-Variable/" class="post-meta-item leancloud_visitors" data-flag-title="Typescript 数据类型" title="阅读次数">
+            <span id="/2019/11/21/Mongodb-replSet/" class="post-meta-item leancloud_visitors" data-flag-title="Mongodb 多主机热备份 (1主1副1仲裁)" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -283,7 +283,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/10/25/Typescript-Variable/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/10/25/Typescript-Variable/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/11/21/Mongodb-replSet/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/11/21/Mongodb-replSet/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -297,21 +297,41 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="元组类型-tuple"><a href="#元组类型-tuple" class="headerlink" title="元组类型 tuple"></a>元组类型 tuple</h3><p>属于数组的一种，可以在同一个数组里面定义不同类型</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr:[number, string] = [<span class="number">123</span>, <span class="string">'abc'</span>]</span><br></pre></td></tr></table></figure><h3 id="枚举类型-enum"><a href="#枚举类型-enum" class="headerlink" title="枚举类型 enum"></a>枚举类型 enum</h3><p>一般用于状态码判断</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">emnu Status &#123; <span class="string">'error'</span>, <span class="string">'success'</span> &#125;</span><br><span class="line"><span class="keyword">let</span> s:Status = Status.success</span><br><span class="line"><span class="built_in">console</span>.log(s) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure><a id="more"></a>
+        <p>小项目一般不会用到，只有当并发量大，宕机机率高的情况下才需要使用副本集模式</p><h3 id="模式介绍"><a href="#模式介绍" class="headerlink" title="模式介绍"></a>模式介绍</h3><p>mongodb集群有三种模式，主从模式，副本集模式、sharding分片模式。主从模式官网也不再推荐上生产环境，主要是安全性太低。副本集和sharding模式目前是用的最广的方案，通常这2种方案的选择通过数据量和并发数来权衡。</p><a id="more"></a>
 
+<p>早期的MongoDB版本使用master-slave，一主一从和MySQL类似，但slave在此架构中为只读，当主库宕机后，从库不能自动切换为主。目前已经淘汰master-slave模式，改为副本集，这种模式下有一个主(primary)，和多个从(secondary)，只读。支持给它们设置权重，当主宕掉后，权重最高的从切换为主。在此架构中还可以建立一个仲裁(arbiter)的角色，它只负责裁决，而不存储数据</p>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p>在GB级别的基本上副本集方案可满足，TB级别或以上采用sharding模式，解决单机容量和单机并发能力。这两种既有自己的优势也有自己的缺点，比如sharding模式分片越多，性能自然下降越多</p>
+<p>官方建议的副本集节点数量是3个，1个主节点+2个从节点。或者是1个主节点+1个从节点+1个仲裁节点。仲裁节点的作用是在主节点不可用时，通过算法找到最适合的从节点成为新的主节点。不建议将仲裁节点和数据节点放在同一个服务器上</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>这里开启三个本地Mongo服务来测试<br>./1/mongodb.conf (主1)</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dbpath=D:\MongoDB\Server\<span class="number">4.0</span>\<span class="number">1</span>\db</span><br><span class="line">port=<span class="number">27000</span></span><br><span class="line">replSet=datamip/<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">27001</span></span><br><span class="line"># keyFile=D:\MongoDB\Server\4.0\keys\mongodb-keyfile</span><br></pre></td></tr></table></figure>
 
+<p>./2/mongodb.conf (从2)</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dbpath=D:\MongoDB\Server\<span class="number">4.0</span>\<span class="number">2</span>\db</span><br><span class="line">port=<span class="number">27001</span></span><br><span class="line">replSet=datamip/<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">27000</span></span><br><span class="line"># keyFile=D:\MongoDB\Server\4.0\keys\mongodb-keyfile</span><br></pre></td></tr></table></figure>
 
+<p>./3/mongodb.conf (仲裁3)</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dbpath=D:\MongoDB\Server\<span class="number">4.0</span>\<span class="number">3</span>\db</span><br><span class="line">port=<span class="number">27002</span></span><br><span class="line">replSet=datamip/<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">27000</span></span><br><span class="line"># keyFile=D:\MongoDB\Server\4.0\keys\mongodb-keyfile</span><br></pre></td></tr></table></figure>
 
+<h3 id="KeyFile"><a href="#KeyFile" class="headerlink" title="KeyFile"></a>KeyFile</h3><p>在生产环境我们需要增加安全认证机制KeyFile，集群之间的安全认证<br>注意：三个节点必须要用同一份keyfile，在一台机器生成，拷贝到另外两台，并且修改成 600 的文件权限</p>
+<p>生成 keyfile</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ openssl rand -base64 <span class="number">745</span> &gt; <span class="regexp">/data/m</span>ongoConfig/keys/mongodb-keyfile</span><br></pre></td></tr></table></figure>
 
-<h3 id="任意类型-any"><a href="#任意类型-any" class="headerlink" title="任意类型 any"></a>任意类型 any</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> oBox = <span class="built_in">document</span>.getElementById(<span class="string">'box'</span>)</span><br><span class="line">oBox.style.color = <span class="string">'red'</span></span><br></pre></td></tr></table></figure>
+<p>设置副本集、仲裁副本</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$ mongo <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">27000</span></span><br><span class="line"><span class="comment">// 创建auth用户 (设置keyfile之后需要)</span></span><br><span class="line">&gt; db.createUser(&#123; <span class="attr">user</span>: <span class="string">"admin"</span>, <span class="attr">pwd</span>: <span class="string">"admin"</span>, <span class="attr">roles</span>: [&#123; <span class="attr">role</span>: <span class="string">"userAdminAnyDatabase"</span>, <span class="attr">db</span>: <span class="string">"admin"</span> &#125;] &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置副本集</span></span><br><span class="line">&gt; db.runCommand(&#123;</span><br><span class="line">    <span class="string">"replSetInitiate"</span>: &#123;</span><br><span class="line">        <span class="string">"_id"</span>: <span class="string">"datamip"</span>,</span><br><span class="line">        <span class="string">"members"</span>: [</span><br><span class="line">            &#123; <span class="string">"_id"</span>: <span class="number">1</span>, <span class="string">"host"</span>: <span class="string">"127.0.0.1:27000"</span> &#125;,</span><br><span class="line">            &#123; <span class="string">"_id"</span>: <span class="number">2</span>, <span class="string">"host"</span>: <span class="string">"127.0.0.1:27001"</span> &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置仲裁</span></span><br><span class="line">&gt; db.addArb(<span class="string">"127.0.0.1:27002"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 查看状态 (主、备、仲裁) 的状态</span></span><br><span class="line">datamip:PRIMARY &gt; rs.status()</span><br></pre></td></tr></table></figure>
 
-<h3 id="空类型-null-和-undefined"><a href="#空类型-null-和-undefined" class="headerlink" title="空类型 null 和 undefined"></a>空类型 null 和 undefined</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num: number | <span class="literal">null</span> | <span class="literal">undefined</span></span><br><span class="line">num = <span class="literal">null</span> <span class="comment">// 没有指定 null 类型时会报错</span></span><br><span class="line"><span class="built_in">console</span>.log(num) <span class="comment">// underfined</span></span><br></pre></td></tr></table></figure>
+<p>在 mongodb.conf 启动配置文件中增加 keyFile 配置项</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keyFile=<span class="regexp">/data/m</span>ongoConfig/keys/mon-keyfile</span><br></pre></td></tr></table></figure>
 
-<h3 id="没有返回值-void"><a href="#没有返回值-void" class="headerlink" title="没有返回值 void"></a>没有返回值 void</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">run</span>(<span class="params"></span>):<span class="title">void</span> </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'run'</span>)</span><br><span class="line">    <span class="comment">// return 1  // 会报错</span></span><br><span class="line">&#125;</span><br><span class="line">run()</span><br></pre></td></tr></table></figure>
+<h3 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h3><p>注意：关闭服务需要先关闭[从]，再关闭[主]，最后一个关闭的将是 PRIMARY 主机</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongod -f /opt/mongodb/mongodb.conf</span><br></pre></td></tr></table></figure>
 
-<h3 id="其他类型-never"><a href="#其他类型-never" class="headerlink" title="其他类型 never"></a>其他类型 never</h3><p>一般不会用到<br>包括 null 和 undefined，从不会出现的值<br>也可以用 any 代替，一般应用于匿名函数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a:never;</span><br><span class="line">a=<span class="function">(<span class="params">(</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'error'</span>)</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+<p>keyfiile登录 就相当于开启了 auth登录</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mongo <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">27000</span> -u admin -p admin</span><br><span class="line">datamip:PRIMARY &gt; show dbs</span><br></pre></td></tr></table></figure>
 
+<p>默认不可以在 SECOUND 中使用 db命令，需要执行 salveOk 来开放权限</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mongo <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">27001</span> -u admin -p admin</span><br><span class="line">datamip:SECONDARY &gt; rs.slaveOk()</span><br><span class="line">datamip:SECONDARY &gt; show dbs</span><br></pre></td></tr></table></figure>
+
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>关闭 主1 服务，自动切换为 从2 服务</p>
+<p>在项目中使用 Monk 调用热备份，查看最新文档<br><a href="https://github.com/Automattic/monk" target="_blank" rel="noopener">https://github.com/Automattic/monk</a><br>例如 monk(‘10.25.125.20,10.25.125.22/mydb?replicaSet=[replicaSet Name]’)</p>
 
     </div>
 
@@ -337,8 +357,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/10/11/Javascript-The-extends-way/" rel="next" title="Javascript 继承的几种方式">
-                  <i class="fa fa-chevron-left"></i> Javascript 继承的几种方式
+                <a href="/2019/11/20/Mongodb-Monitor-and-send-email/" rel="next" title="Mongodb 实现监控与邮件报警">
+                  <i class="fa fa-chevron-left"></i> Mongodb 实现监控与邮件报警
                 </a>
               
             </div>
@@ -346,10 +366,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/10/25/Typescript-Function-params/" rel="prev" title="Typescript 函数参数">
-                  Typescript 函数参数 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -398,7 +414,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#元组类型-tuple"><span class="nav-text">元组类型 tuple</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#枚举类型-enum"><span class="nav-text">枚举类型 enum</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#任意类型-any"><span class="nav-text">任意类型 any</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空类型-null-和-undefined"><span class="nav-text">空类型 null 和 undefined</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#没有返回值-void"><span class="nav-text">没有返回值 void</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他类型-never"><span class="nav-text">其他类型 never</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#模式介绍"><span class="nav-text">模式介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用场景"><span class="nav-text">使用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例"><span class="nav-text">示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KeyFile"><span class="nav-text">KeyFile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重启服务"><span class="nav-text">重启服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-text">测试</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
