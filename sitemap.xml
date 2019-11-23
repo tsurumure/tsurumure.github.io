@@ -2,17 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://imure.cn/2019/11/20/CentOS-Crontab/</loc>
-    <lastmod>2019-11-21</lastmod>
+    <loc>http://imure.cn/2019/11/23/Mongodb-Systemctl-Service/</loc>
+    <lastmod>2019-11-23</lastmod>
   </url>
   
   <url>
-    <loc>http://imure.cn/2019/11/21/Mongodb-replSet/</loc>
-    <lastmod>2019-11-21</lastmod>
+    <loc>http://imure.cn/2019/11/21/Mongodb-ReplSet/</loc>
+    <lastmod>2019-11-23</lastmod>
   </url>
   
   <url>
     <loc>http://imure.cn/2019/11/20/Mongodb-Monitor-and-send-email/</loc>
+    <lastmod>2019-11-21</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://imure.cn/2019/11/20/CentOS-Crontab/</loc>
     <lastmod>2019-11-21</lastmod>
   </url>
   

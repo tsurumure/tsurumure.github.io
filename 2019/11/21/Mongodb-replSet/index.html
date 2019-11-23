@@ -58,15 +58,15 @@
 <meta name="keywords" content="学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mongodb 多主机热备份 (1主1副1仲裁)">
-<meta property="og:url" content="http://imure.cn/2019/11/21/Mongodb-replSet/index.html">
+<meta property="og:url" content="http://imure.cn/2019/11/21/Mongodb-ReplSet/index.html">
 <meta property="og:site_name" content="Mure">
 <meta property="og:description" content="小项目一般不会用到，只有当并发量大，宕机机率高的情况下才需要使用副本集模式模式介绍mongodb集群有三种模式，主从模式，副本集模式、sharding分片模式。主从模式官网也不再推荐上生产环境，主要是安全性太低。副本集和sharding模式目前是用的最广的方案，通常这2种方案的选择通过数据量和并发数来权衡。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-21T08:07:24.205Z">
+<meta property="og:updated_time" content="2019-11-23T02:09:49.943Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mongodb 多主机热备份 (1主1副1仲裁)">
 <meta name="twitter:description" content="小项目一般不会用到，只有当并发量大，宕机机率高的情况下才需要使用副本集模式模式介绍mongodb集群有三种模式，主从模式，副本集模式、sharding分片模式。主从模式官网也不再推荐上生产环境，主要是安全性太低。副本集和sharding模式目前是用的最广的方案，通常这2种方案的选择通过数据量和并发数来权衡。">
-  <link rel="canonical" href="http://imure.cn/2019/11/21/Mongodb-replSet/">
+  <link rel="canonical" href="http://imure.cn/2019/11/21/Mongodb-ReplSet/">
 
 
 <script id="page-configurations">
@@ -219,7 +219,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://imure.cn/2019/11/21/Mongodb-replSet/">
+    <link itemprop="mainEntityOfPage" href="http://imure.cn/2019/11/21/Mongodb-ReplSet/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mure">
@@ -265,7 +265,7 @@
           
 
           
-            <span id="/2019/11/21/Mongodb-replSet/" class="post-meta-item leancloud_visitors" data-flag-title="Mongodb 多主机热备份 (1主1副1仲裁)" title="阅读次数">
+            <span id="/2019/11/21/Mongodb-ReplSet/" class="post-meta-item leancloud_visitors" data-flag-title="Mongodb 多主机热备份 (1主1副1仲裁)" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -283,7 +283,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/11/21/Mongodb-replSet/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/11/21/Mongodb-replSet/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/11/21/Mongodb-ReplSet/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/11/21/Mongodb-ReplSet/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -357,8 +357,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/11/20/Mongodb-Monitor-and-send-email/" rel="next" title="Mongodb 实现监控与邮件报警">
-                  <i class="fa fa-chevron-left"></i> Mongodb 实现监控与邮件报警
+                <a href="/2019/11/20/Mongodb-Monitor-and-send-email/" rel="next" title="Mongodb 实现进程监控、重启与邮件报警">
+                  <i class="fa fa-chevron-left"></i> Mongodb 实现进程监控、重启与邮件报警
                 </a>
               
             </div>
@@ -366,6 +366,10 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/11/23/Mongodb-Systemctl-Service/" rel="prev" title="Mongodb 设置自动重启服务 (CentOS Systemctl)">
+                  Mongodb 设置自动重启服务 (CentOS Systemctl) <i class="fa fa-chevron-right"></i>
+                </a>
               
             </div>
           </div>
@@ -433,7 +437,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -483,7 +487,7 @@
     </div>
 
     <div class="sidebar-list-categories">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CentOS/">CentOS</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/">Javascript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mongodb/">Mongodb</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-native/">React-native</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Typescript/">Typescript</a><span class="category-list-count">8</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CentOS/">CentOS</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/">Javascript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mongodb/">Mongodb</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-native/">React-native</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Typescript/">Typescript</a><span class="category-list-count">8</span></li></ul>
     </div>
 
   </aside>

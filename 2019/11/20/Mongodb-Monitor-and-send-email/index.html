@@ -57,14 +57,14 @@
   <meta name="description" content="使用 crontab 定时执行 shell脚本实现进程监控，当进程发生异常预警时，发送邮件通知管理员（集群多用户）邮件发送器 MailxCentOS 使用 Mailx 通过465端口发送邮件发信人参数配置12345/opt/mongodb/shell/mongodb_cluster_config.txtipAddressAndPorts=127.0.0.1:62323semdEmailTo=405">
 <meta name="keywords" content="学习笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mongodb 实现监控与邮件报警">
+<meta property="og:title" content="Mongodb 实现进程监控、重启与邮件报警">
 <meta property="og:url" content="http://imure.cn/2019/11/20/Mongodb-Monitor-and-send-email/index.html">
 <meta property="og:site_name" content="Mure">
 <meta property="og:description" content="使用 crontab 定时执行 shell脚本实现进程监控，当进程发生异常预警时，发送邮件通知管理员（集群多用户）邮件发送器 MailxCentOS 使用 Mailx 通过465端口发送邮件发信人参数配置12345/opt/mongodb/shell/mongodb_cluster_config.txtipAddressAndPorts=127.0.0.1:62323semdEmailTo=405">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-21T08:04:48.062Z">
+<meta property="og:updated_time" content="2019-11-21T09:13:49.453Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mongodb 实现监控与邮件报警">
+<meta name="twitter:title" content="Mongodb 实现进程监控、重启与邮件报警">
 <meta name="twitter:description" content="使用 crontab 定时执行 shell脚本实现进程监控，当进程发生异常预警时，发送邮件通知管理员（集群多用户）邮件发送器 MailxCentOS 使用 Mailx 通过465端口发送邮件发信人参数配置12345/opt/mongodb/shell/mongodb_cluster_config.txtipAddressAndPorts=127.0.0.1:62323semdEmailTo=405">
   <link rel="canonical" href="http://imure.cn/2019/11/20/Mongodb-Monitor-and-send-email/">
 
@@ -80,7 +80,7 @@
   };
 </script>
 
-  <title>Mongodb 实现监控与邮件报警 | Mure</title>
+  <title>Mongodb 实现进程监控、重启与邮件报警 | Mure</title>
   
 
 
@@ -231,7 +231,7 @@
       <meta itemprop="name" content="Mure">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Mongodb 实现监控与邮件报警
+        <h1 class="post-title" itemprop="name headline">Mongodb 实现进程监控、重启与邮件报警
 
           
         </h1>
@@ -265,7 +265,7 @@
           
 
           
-            <span id="/2019/11/20/Mongodb-Monitor-and-send-email/" class="post-meta-item leancloud_visitors" data-flag-title="Mongodb 实现监控与邮件报警" title="阅读次数">
+            <span id="/2019/11/20/Mongodb-Monitor-and-send-email/" class="post-meta-item leancloud_visitors" data-flag-title="Mongodb 实现进程监控、重启与邮件报警" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -305,7 +305,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/sh</span></span><br><span class="line"># 使用 which sh 检查sh命令位置</span><br><span class="line">db_backups_conf=<span class="string">"/opt/mongodb/shell/mongodb_cluster_config.txt"</span></span><br><span class="line"></span><br><span class="line"># 判断文件是否存在</span><br><span class="line"><span class="keyword">if</span> [ -f <span class="string">"$&#123;db_backups_conf&#125;"</span> ];then</span><br><span class="line">	echo $(date +<span class="string">'%Y-%m-%d %H:%M:%S'</span>)<span class="string">" 发现配置信息文件存在"</span></span><br><span class="line">	dbArrOne=($(awk -F<span class="string">'[=]'</span> <span class="string">'&#123;print $1&#125;'</span> $&#123;db_backups_conf&#125; ))</span><br><span class="line">	dbArrTwo=($(awk -F<span class="string">'[=]'</span> <span class="string">'&#123;print $2&#125;'</span> $&#123;db_backups_conf&#125;))</span><br><span class="line">	declare -A map=()</span><br><span class="line">	</span><br><span class="line">	# 将 db_backups_conf 配置文件中的信息存储在map中</span><br><span class="line">	for((i=0;i&lt;$&#123;#dbArrOne[@]&#125;;i++))</span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">		map[$&#123;dbArrOne[i]&#125;]=$&#123;dbArrTwo[i]&#125;</span><br><span class="line">	done	</span><br><span class="line">	</span><br><span class="line">	# 获取要监测集群节点IP和端口号组合的字符串</span><br><span class="line">	ipPortsStr=$&#123;map[<span class="string">"ipAddressAndPorts"</span>]&#125;</span><br><span class="line">	# 获取收件人的邮件账号的字符串</span><br><span class="line">	semdEmailTo=$&#123;map[<span class="string">"semdEmailTo"</span>]&#125;</span><br><span class="line">	# 获取默认的字符串分隔符</span><br><span class="line">	old_ifs=<span class="string">"$IFS"</span></span><br><span class="line">	# 设置字符串分隔符为逗号</span><br><span class="line">	IFS=<span class="string">","</span></span><br><span class="line"> </span><br><span class="line">	# 将要集群节点IP和PORT的value值的字符串进行分隔，获取一个数组</span><br><span class="line">	ipPortArr=($ipPortsStr)</span><br><span class="line">	# 将收件人的邮件账号value值的字符串进行分隔，获取一个数组</span><br><span class="line">	semdEmailToArr=($semdEmailTo)</span><br><span class="line">	# 将字符串的分隔符重新设置为默认的分隔符</span><br><span class="line">	IFS=<span class="string">"$old_ifs"</span></span><br><span class="line">	</span><br><span class="line">	# 定义一个是否需要发送异常提醒邮件变量</span><br><span class="line">	isSendEmailStr=<span class="number">0</span></span><br><span class="line">	# 定义一个出现异常集群节点ip和端口号存储的变量</span><br><span class="line">	errorIpPort=<span class="string">""</span></span><br><span class="line">	</span><br><span class="line">	# 执行命令</span><br><span class="line">	&#123;</span><br><span class="line">		# 遍历集群节点，监测节点是否异常宕机</span><br><span class="line">		<span class="keyword">for</span> ipPort <span class="keyword">in</span> $&#123;ipPortArr[@]&#125;;</span><br><span class="line">		<span class="keyword">do</span></span><br><span class="line">			# 检测mongodb节点是否异常宕机</span><br><span class="line">			netstat -anop | grep $&#123;ipPort&#125;</span><br><span class="line">			<span class="keyword">if</span> [ $? -ne <span class="number">1</span> ];then</span><br><span class="line">				echo $(date +<span class="string">'%Y-%m-%d %H:%M:%S'</span>)<span class="string">" mongodb集群节点正常："</span>$&#123;ipPort&#125;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				echo $(date +<span class="string">'%Y-%m-%d %H:%M:%S'</span>)<span class="string">" mongodb集群节点异常："</span>$&#123;ipPort&#125;</span><br><span class="line">				isSendEmailStr=<span class="number">1</span></span><br><span class="line">				errorIpPort=$&#123;errorIpPort&#125;<span class="string">""</span>$&#123;ipPort&#125;<span class="string">","</span></span><br><span class="line">			fi</span><br><span class="line">		done</span><br><span class="line">	&#125; || &#123;</span><br><span class="line">		isSendEmailStr=<span class="number">1</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	# 判断命令执行是否有异常，如果有异常就发送邮件</span><br><span class="line">	<span class="keyword">if</span> [$&#123;isSendEmailStr&#125; == <span class="string">"0"</span>];then</span><br><span class="line">			echo $(date +<span class="string">'%Y-%m-%d %H:%M:%S'</span>)<span class="string">" 执行mongodb集群节点监测全部正常"</span></span><br><span class="line">		<span class="keyword">else</span> </span><br><span class="line">			echo $(date +<span class="string">'%Y-%m-%d %H:%M:%S'</span>)<span class="string">" 执行mongodb集群节点监测有异常，开始发送邮件通知管理员"</span></span><br><span class="line">			</span><br><span class="line">			#遍历收件人的邮箱地址，逐个发送邮件</span><br><span class="line">			<span class="keyword">for</span> email <span class="keyword">in</span> $&#123;semdEmailToArr[@]&#125;;</span><br><span class="line">			<span class="keyword">do</span></span><br><span class="line">				echo $(date +<span class="string">'%Y-%m-%d %H:%M:%S'</span>)<span class="string">" 开始发送邮件："</span>$&#123;email&#125;</span><br><span class="line"> </span><br><span class="line">				echo <span class="string">""</span>$&#123;map[<span class="string">"sendEmailContent"</span>]&#125;<span class="string">",异常节点信息如下："</span>$&#123;errorIpPort&#125; | mail -s <span class="string">""</span>$&#123;map[<span class="string">"sendEmailTitle"</span>]&#125; $&#123;email&#125;</span><br><span class="line">			done</span><br><span class="line">			echo $(date +<span class="string">'%Y-%m-%d %H:%M:%S'</span>)<span class="string">" 执行mongodb集群节点监测有异常，成功发送邮件通知管理员"</span></span><br><span class="line">	fi</span><br><span class="line">	echo $(date +<span class="string">'%Y-%m-%d %H:%M:%S'</span>)<span class="string">" 脚本执行完毕"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	echo <span class="string">"文件不存在"</span></span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
 
 <h3 id="测试脚本"><a href="#测试脚本" class="headerlink" title="测试脚本"></a>测试脚本</h3><p>手动关闭 Mongo服务进程</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查看 mongodb 进程</span></span><br><span class="line">$ ps -ef|grep mongodb</span><br><span class="line"><span class="comment">// 输出 root   12611  1  0 17:05 ?   00:00:03 mongod --dbpath /opt/mongodb/data/db</span></span><br><span class="line"><span class="comment">// 杀死进程</span></span><br><span class="line">$ kill <span class="number">-2</span> <span class="number">12611</span></span><br><span class="line"><span class="comment">// 查看是否杀死成功</span></span><br><span class="line">$ ps -ef|grep mongodb</span><br><span class="line"><span class="comment">// 查看端口是否还会被占用</span></span><br><span class="line">$ netstat -anp|grep <span class="number">62323</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查看 mongodb 进程</span></span><br><span class="line">$ ps -ef|grep mongod</span><br><span class="line"><span class="comment">// 输出 root   12611  1  0 17:05 ?   00:00:03 mongod --dbpath /opt/mongodb/data/db</span></span><br><span class="line"><span class="comment">// 杀死进程</span></span><br><span class="line">$ kill <span class="number">-2</span> <span class="number">12611</span></span><br><span class="line"><span class="comment">// 查看是否杀死成功</span></span><br><span class="line">$ ps -ef|grep mongod</span><br><span class="line"><span class="comment">// 查看端口是否还会被占用</span></span><br><span class="line">$ netstat -anp|grep <span class="number">62323</span></span><br></pre></td></tr></table></figure>
 
 <p>执行脚本，成功的话会发送邮件</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sh watch.sh</span><br></pre></td></tr></table></figure>
@@ -349,7 +349,7 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/11/21/Mongodb-replSet/" rel="prev" title="Mongodb 多主机热备份 (1主1副1仲裁)">
+                <a href="/2019/11/21/Mongodb-ReplSet/" rel="prev" title="Mongodb 多主机热备份 (1主1副1仲裁)">
                   Mongodb 多主机热备份 (1主1副1仲裁) <i class="fa fa-chevron-right"></i>
                 </a>
               
@@ -419,7 +419,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -469,7 +469,7 @@
     </div>
 
     <div class="sidebar-list-categories">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CentOS/">CentOS</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/">Javascript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mongodb/">Mongodb</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-native/">React-native</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Typescript/">Typescript</a><span class="category-list-count">8</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CentOS/">CentOS</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/">Javascript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mongodb/">Mongodb</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-native/">React-native</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Typescript/">Typescript</a><span class="category-list-count">8</span></li></ul>
     </div>
 
   </aside>

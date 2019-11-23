@@ -213,7 +213,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://imure.cn/2019/11/21/Mongodb-replSet/">
+    <link itemprop="mainEntityOfPage" href="http://imure.cn/2019/11/23/Mongodb-Systemctl-Service/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mure">
@@ -227,7 +227,114 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2019/11/21/Mongodb-replSet/" class="post-title-link" itemprop="url">Mongodb 多主机热备份 (1主1副1仲裁)</a>
+            <a href="/2019/11/23/Mongodb-Systemctl-Service/" class="post-title-link" itemprop="url">Mongodb 设置自动重启服务 (CentOS Systemctl)</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-23 10:08:57" itemprop="dateCreated datePublished" datetime="2019-11-23T10:08:57+08:00">2019-11-23</time>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Mongodb/" itemprop="url" rel="index"><span itemprop="name">Mongodb</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span id="/2019/11/23/Mongodb-Systemctl-Service/" class="post-meta-item leancloud_visitors" data-flag-title="Mongodb 设置自动重启服务 (CentOS Systemctl)" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/11/23/Mongodb-Systemctl-Service/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/11/23/Mongodb-Systemctl-Service/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>设置为 Systemctl 进程服务启动</p><ul>
+<li>可以方便启动/停止</li>
+<li>可以让进程挂掉时重启</li>
+</ul><h3 id="创建服务配置"><a href="#创建服务配置" class="headerlink" title="创建服务配置"></a>创建服务配置</h3><p>/usr/lib/systemd/system/mongodb.service</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=mongodb</span><br><span class="line">After=network.target remote-fs.target nss-lookup.target  </span><br><span class="line">  </span><br><span class="line">[Service]  </span><br><span class="line">Type=forking  </span><br><span class="line">ExecStart=<span class="regexp">/usr/</span>local/bin/mongod --config /home/www/mongo/conf/mongo.server.conf</span><br><span class="line">ExecReload=<span class="regexp">/bin/</span>kill -s HUP $MAINPID</span><br><span class="line">ExecStop=<span class="regexp">/usr/</span>local/bin/mongod --shutdown --config /home/www/mongo/conf/mongo.server.conf</span><br><span class="line">PrivateTmp=<span class="literal">true</span>  </span><br><span class="line">Restart=always</span><br><span class="line">RestartSec=<span class="number">1</span> </span><br><span class="line"></span><br><span class="line">[Install]  </span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://imure.cn/2019/11/21/Mongodb-ReplSet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mure">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mure">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/11/21/Mongodb-ReplSet/" class="post-title-link" itemprop="url">Mongodb 多主机热备份 (1主1副1仲裁)</a>
           
         </h1>
 
@@ -260,7 +367,7 @@
           
 
           
-            <span id="/2019/11/21/Mongodb-replSet/" class="post-meta-item leancloud_visitors" data-flag-title="Mongodb 多主机热备份 (1主1副1仲裁)" title="阅读次数">
+            <span id="/2019/11/21/Mongodb-ReplSet/" class="post-meta-item leancloud_visitors" data-flag-title="Mongodb 多主机热备份 (1主1副1仲裁)" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -278,7 +385,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/11/21/Mongodb-replSet/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/11/21/Mongodb-replSet/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2019/11/21/Mongodb-ReplSet/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/11/21/Mongodb-ReplSet/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -331,7 +438,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2019/11/20/Mongodb-Monitor-and-send-email/" class="post-title-link" itemprop="url">Mongodb 实现监控与邮件报警</a>
+            <a href="/2019/11/20/Mongodb-Monitor-and-send-email/" class="post-title-link" itemprop="url">Mongodb 实现进程监控、重启与邮件报警</a>
           
         </h1>
 
@@ -364,7 +471,7 @@
           
 
           
-            <span id="/2019/11/20/Mongodb-Monitor-and-send-email/" class="post-meta-item leancloud_visitors" data-flag-title="Mongodb 实现监控与邮件报警" title="阅读次数">
+            <span id="/2019/11/20/Mongodb-Monitor-and-send-email/" class="post-meta-item leancloud_visitors" data-flag-title="Mongodb 实现进程监控、重启与邮件报警" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1148,110 +1255,6 @@
   
 
     
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://imure.cn/2019/10/25/Typescript-Export-and-import/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mure">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mure">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/10/25/Typescript-Export-and-import/" class="post-title-link" itemprop="url">Typescript 模块化export, import</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-25 16:34:37" itemprop="dateCreated datePublished" datetime="2019-10-25T16:34:37+08:00">2019-10-25</time>
-            </span>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Typescript/" itemprop="url" rel="index"><span itemprop="name">Typescript</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            <span id="/2019/10/25/Typescript-Export-and-import/" class="post-meta-item leancloud_visitors" data-flag-title="Typescript 模块化export, import" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2019/10/25/Typescript-Export-and-import/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/10/25/Typescript-Export-and-import/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="简单示例"><a href="#简单示例" class="headerlink" title="简单示例"></a>简单示例</h3><p>./modules/db.ts</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dbUrl=<span class="string">'xxxxxx'</span></span><br><span class="line">function getData():any[] &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'获取数据库的数据111'</span>)</span><br><span class="line">    <span class="keyword">return</span> [</span><br><span class="line">        &#123; <span class="attr">title</span>:<span class="string">'121312'</span> &#125;, &#123; <span class="attr">title</span>:<span class="string">'121312'</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">save</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'保存数据成功'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> &#123;dbUrl,getData,save&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </article>
-  
-  
-  
-
-    
   </div>
 
   
@@ -1304,7 +1307,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1358,7 +1361,7 @@
     </div>
 
     <div class="sidebar-list-categories">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CentOS/">CentOS</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/">Javascript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mongodb/">Mongodb</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-native/">React-native</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Typescript/">Typescript</a><span class="category-list-count">8</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CentOS/">CentOS</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/">Javascript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mongodb/">Mongodb</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-native/">React-native</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Typescript/">Typescript</a><span class="category-list-count">8</span></li></ul>
     </div>
 
   </aside>
